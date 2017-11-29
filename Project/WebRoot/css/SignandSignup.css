@@ -1,0 +1,131 @@
+/* ��¼ע��css*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0px; padding: 0px; border: 0px none; font: inherit; vertical-align: baseline; }
+ol, ul { list-style: outside none none; padding: 0px; margin: 0px; }
+blockquote::before, blockquote::after, q::before, q::after { content: none; }
+a { text-decoration: none; }
+.clear { clear: both; }
+body { font-family: "Roboto",sans-serif; text-align: center; background: rgba(0, 0, 0, 0) url('../images/backtoschool3.jpg') no-repeat fixed center center / cover ; }
+body a { transition: all 0.5s ease 0s; text-decoration: none; }
+h1 { font-size: 45px; font-weight: 500; letter-spacing: 4px; margin: 60px 0px; color: rgb(255, 255, 255); }
+.container { width: 50%; margin: 0px auto; padding: 40px; background-color: rgba(10, 10, 10, 0.77); border-width: 2px 2px medium; border-style: ridge ridge none; border-color: rgba(238, 238, 238, 0.13) rgba(238, 238, 238, 0.13) currentcolor; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-top-left-radius: 5px; border-top-right-radius: 5px; box-shadow: 0px -5px 10px 1px rgba(16, 16, 16, 0.57); border-bottom-left-radius: initial; border-bottom-right-radius: initial; }
+.login { width: 45%; float: left; text-align: left; padding-right: 40px; }
+:-moz-placeholder { color: rgb(204, 204, 204); }
+*::-moz-placeholder { color: rgb(204, 204, 204); }
+h2 { font-size: 35px; text-align: left; color: rgb(255, 255, 255); font-weight: 100; margin-bottom: 20px; }
+ul.tick { float: left; list-style: outside none none; display: inline-block; width: 100%; margin-bottom: 20px; }
+ul.tick li input[type="checkbox"] { display: none; }
+ul.tick li input[type="checkbox"] + label { position: relative; padding-left: 30px; border: medium none rgb(240, 248, 255); display: inline-block; font-size: 13px; color: rgb(238, 238, 238); }
+ul.tick li input[type="checkbox"] + label span:first-child { width: 17px; height: 17px; display: inline-block; border: 1px solid rgb(238, 238, 238); position: absolute; top: -3px; left: 0px; bottom: 4px; }
+ul.tick li input[type="checkbox"]:checked + label span:first-child::before { content: ""; background: rgba(0, 0, 0, 0) url('../images/tick.png') no-repeat scroll 0% 0%; position: absolute; left: 3px; top: 3px; font-size: 10px; width: 10px; height: 10px; }
+.social-icons { margin-top: 20px; text-align: center; }
+.social-icons p { color: rgb(204, 204, 204); margin-bottom: 15px; }
+.social-icons ul li { float: left; width: 32.9%; }
+.copyrights { text-indent: -9999px; height: 0px; line-height: 0; font-size: 0px; overflow: hidden; }
+.social-icons ul li a { display: block; }
+.social-icons ul li a span { vertical-align: middle; color: rgb(255, 255, 255); font-size: 15px; }
+.social-icons ul li span.icons { background: rgba(0, 0, 0, 0) url('../images/i1.png') no-repeat scroll center center; width: 30px; height: 30px; display: inline-block; }
+.social-icons ul li.weixin span.icons { background: rgba(0, 0, 0, 0) url('../images/weixin.png') no-repeat scroll 0% 0% / 100% auto; }
+.social-icons ul li.qq span.icons { background: rgba(0, 0, 0, 0) url('../images/qq.png') no-repeat scroll 0% 0% / 100% auto; }
+.social-icons ul li.weibo span.icons { background: rgba(0, 0, 0, 0) url('../images/weibo.png') no-repeat scroll 0% 0% / 100% auto; }
+.social-icons ul li a:hover span.icons { transform: rotateY(360deg); transition: all 0.5s ease 0s; }
+input[type="text"], input[type="password"] { width: 93.4%; margin-bottom: 20px; padding: 10px; float: left; background-color: transparent; border-width: medium medium 1px; border-style: none none solid; border-color: currentcolor currentcolor rgba(238, 238, 238, 0.41); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; font-size: 15px; outline: medium none; color: rgb(255, 255, 255); }
+.send-button { margin-bottom: 20px; }
+.send-button input[type="submit"] { width: 60%; padding: 10px 0px; font-size: 16px; font-weight: 100; background-color: transparent; color: rgb(204, 204, 204); border: thin solid rgba(238, 238, 238, 0.41); cursor: pointer; outline: medium none; transition: all 0.5s ease 0s; text-decoration: none; }
+.send-button input[type="submit"]:hover { background-color: rgb(0, 0, 0); border: 1px solid rgb(255, 255, 255); color: rgb(255, 255, 255); transition: all 0.5s ease 0s; text-decoration: none; }
+.login a { color: rgb(204, 204, 204); }
+.login a:hover { color: rgb(255, 255, 255); }
+.register { width: 44%; float: left; border-left: 1px solid rgb(221, 221, 221); padding-left: 40px; text-align: left; }
+.footer { text-align: center; margin: 100px 20px 20px; }
+.footer p { color: rgb(204, 204, 204); line-height: 25px; }
+.footer a { color: rgb(204, 204, 204); text-decoration: none; }
+.footer a:hover { color: rgb(255, 255, 255); }
+@media screen and (max-width: 1920px) {
+	h1 { margin: 100px 0px; }
+}
+@media screen and (max-width: 1600px) {
+	h1 { margin: 60px 0px; }
+}
+@media screen and (max-width: 1440px) {
+	.container { width: 53%; }
+}
+@media screen and (max-width: 1366px) {
+	h1 { margin: 50px 0px; }
+	.container { width: 57%; }
+}
+@media screen and (max-width: 1280px) {
+	.container { width: 60%; }
+}
+@media screen and (max-width: 1024px) {
+	.container { width: 76%; }
+}
+@media screen and (max-width: 966px) {
+	.container { width: 80%; }
+	.footer { margin: 50px 20px 20px; }
+}
+@media screen and (max-width: 853px) {
+	.login { padding-right: 36px; }
+	.register { padding-left: 36px; }
+	.social-icons ul li { width: 32.8%; }
+}
+@media screen and (max-width: 800px) {
+	h1 { font-size: 43px; }
+	.login { padding-right: 35px; }
+	.register { padding-left: 34px; }
+	.social-icons ul li span.icons { width: 28px; }
+}
+@media screen and (max-width: 768px) {
+	.container { width: 85%; }
+}
+@media screen and (max-width: 736px) {
+	h1 { font-size: 40px; }
+	.container { width: 87%; padding: 35px; }
+	.login { padding-right: 34px; }
+	.register { padding-left: 33px; }
+	.social-icons ul li a span { font-size: 14px; }
+}
+@media screen and (max-width: 667px) {
+	h1 { font-size: 35px; letter-spacing: 3px; }
+	.container { width: 55%; padding: 50px; }
+	.login { padding: 0px; width: 100%; margin-bottom: 50px; }
+	.register { padding: 40px 0px 0px; width: 100%; border-width: 1px medium medium; border-style: solid none none; border-color: rgb(221, 221, 221) currentcolor currentcolor; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; }
+}
+@media screen and (max-width: 603px) {
+	h1 { letter-spacing: 2px; }
+}
+@media screen and (max-width: 568px) {
+	h1 { letter-spacing: 1px; margin: 30px 0px; }
+	.container { width: 60%; padding: 40px; }
+}
+@media screen and (max-width: 533px) {
+	h1 { font-size: 32px; }
+}
+@media screen and (max-width: 480px) {
+	.container { width: 70%; padding: 35px; }
+	.send-button input[type="submit"] { width: 50%; padding: 8px 0px; }
+}
+@media screen and (max-width: 414px) {
+	h1 { font-size: 30px; }
+	.container { width: 75%; padding: 25px; }
+	.login { margin-bottom: 30px; }
+	h2 { font-size: 30px; margin-bottom: 15px; }
+	.register { padding: 30px 0px 0px; }
+	.footer p { font-size: 14px; }
+}
+@media screen and (max-width: 384px) {
+	h1 { letter-spacing: 0px; }
+}
+@media screen and (max-width: 375px) {
+	.social-icons ul li span.icons { width: 27px; }
+}
+@media screen and (max-width: 360px) {
+	.container { width: 80%; padding: 20px; }
+}
+@media screen and (max-width: 320px) {
+	.social-icons ul li { width: 32.7%; }
+	.social-icons ul li span.icons { width: 25px; }
+	.social-icons ul li a span { font-size: 12.4px; }
+}
+/* ::::: http://www.cssmoban.com/statics/css/astyle.css ::::: */
+
+.adcenter { width: 1200px; height: 90px; margin: 0px auto; }

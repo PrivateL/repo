@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="shop" extends="struts-default" namespace="/">
+		
+		<!-- 配置首页访问的Action -->
+		<action name="index" class="indexAction">
+			<result name="index">/jsp/index.jsp</result>
+		</action>
+		
+		<!-- 配置验证码的Action -->
+		<action name="checkImg" class="checkImgAction">
+		</action>
+		
+		<!-- 用户模块的Action -->
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="registPage">/jsp/login_or_regist.jsp</result>
+			<result name="input">/jsp/login_or_regist.jsp</result>
+			<result name="registSuccess">/jsp/login_or_regist.jsp</result>
+			<result name="loginPage">/jsp/login_or_regist.jsp</result>
+			<result name="loginSuccess" type="redirectAction">index</result>
+			<result name="quit" type="redirectAction">index</result>
+		</action>
+	</package>
+	
+</struts>
