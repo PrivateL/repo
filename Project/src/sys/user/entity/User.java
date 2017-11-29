@@ -1,13 +1,13 @@
 package sys.user.entity;
 
+// 用户
 public class User {
-	private Integer uid;
-	private String username;
-	private String password;
-	private String name;
-	private String email;
-	private String phone;
-	private String addr;
+	private Integer uid;// id
+	private String username;// 账户
+	private String password;// 密码
+	private String name;// 昵称
+	private String email;// 邮箱
+	private String addr;// 地址
 	private Integer state;//激活状态
 	private String code;//验证码
 	public Integer getUid() {
