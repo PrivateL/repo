@@ -46,6 +46,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>sys/user/entity/User.hbm.xml</value>
+				<value>sys/admin/AdminUser.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -74,13 +75,29 @@
 		<property name="userService" ref="userService"/>
 	</bean>
 	
+	<!-- 后台Action -->
+	<bean id="adminUserAction" class="sys.admin.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"></property>
+	</bean>
+	
 	<!-- ====================service的配置========================== -->
 	<bean id="userService" class="sys.user.service.UserService">
 		<property name="userDao" ref="userDao"/>
+	</bean>
+	
+	<!-- 后台Service -->
+	<bean id="adminUserService" class="sys.admin.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"></property>
 	</bean>
 	
 	<!-- ====================dao的配置============================== -->
 	<bean id="userDao" class="sys.user.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	
+	<!--后台Dao -->
+	<bean id="adminUserDao" class="sys.admin.AdminUserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
 </beans>
