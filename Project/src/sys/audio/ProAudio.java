@@ -5,22 +5,22 @@ import java.util.Date;
 /**
  * ProAudio entity. @author MyEclipse Persistence Tools
  */
-
+// 音频
 public class ProAudio{
 
 	// Fields
 
 	private Integer audioId;
-	private String audioName;
-	private Integer ctgSecId;
-	private String authorId;
-	private String audioDesc;
-	private String audioLong;
-	private Integer audioWeight;
-	private String audioImage;
-	private String audioUrl;
-	private Date audioUploadTime;
-	private Integer pathId;
+	private String audioName;// 标题或对应的书名
+	private Integer ctgSecId;// 所属二级分类的id
+	private String authorId;// 作者
+	private String audioDesc;// 音频描述
+	private String audioLong;// 时长
+	private Integer audioWeight;// 权值，衡量是否最受欢迎或计算点击量等
+	private String audioImage;// 封面图片地址
+	private String audioUrl;// 音频存放地址
+	private Date audioUploadTime;// 音频的上传时间
+	private Integer pathId;// 所属学习路径的id
 
 	// Constructors
 

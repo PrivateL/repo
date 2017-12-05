@@ -47,6 +47,7 @@
 			<list>
 				<value>sys/user/entity/User.hbm.xml</value>
 				<value>sys/admin/AdminUser.hbm.xml</value>
+				<value>sys/audio/ProAudio.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -75,6 +76,11 @@
 		<property name="userService" ref="userService"/>
 	</bean>
 	
+	<!-- 音频Action -->
+	<bean id="proAudioAction" class="sys.audio.ProAudioAction" scope="prototype">
+		<property name="proAudioService" ref="proAudioService"></property>
+	</bean>
+	
 	<!-- 后台Action -->
 	<bean id="adminUserAction" class="sys.admin.AdminUserAction" scope="prototype">
 		<property name="adminUserService" ref="adminUserService"></property>
@@ -85,6 +91,11 @@
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
+	<!-- 音频Service -->
+	<bean id="proAudioService" class="sys.audio.ProAudioService">
+		<property name="proAudioDao" ref="proAudioDao"></property>
+	</bean>
+	
 	<!-- 后台Service -->
 	<bean id="adminUserService" class="sys.admin.AdminUserService">
 		<property name="adminUserDao" ref="adminUserDao"></property>
@@ -92,6 +103,11 @@
 	
 	<!-- ====================dao的配置============================== -->
 	<bean id="userDao" class="sys.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 音频Dao -->
+	<bean id="proAudioDao" class="sys.audio.ProAudioDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
