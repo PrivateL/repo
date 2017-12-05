@@ -5,15 +5,15 @@
     
 <hibernate-mapping>
 	<class name="sys.user.entity.User" table="user">
-		<id name="uid">
+		<id name="id">
+			<column name="user_id"></column>
 			<generator class="native"/>
 		</id>
-		<property name="username"/>
-		<property name="password"/>
-		<property name="name"/>
-		<property name="email"/>
-		<property name="addr"/>
-		<property name="state"/>
-		<property name="code"/>
+		<property name="username" column="user_name"/>
+		<property name="password" column="user_password"/>
+		<property name="email" column="user_eamil"/>
+		<property name="state" column="user_state"/>
+		<property name="code" column="user_code"/>
+		<property name="create_date" column="user_create_date"/>
 	</class>
 </hibernate-mapping>

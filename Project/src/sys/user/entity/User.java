@@ -1,20 +1,21 @@
 package sys.user.entity;
 
+import java.util.Date;
+
 // 用户
 public class User {
-	private Integer uid;// id
-	private String username;// 账户
+	private Integer id;// id
+	private String username;// 用户名
 	private String password;// 密码
-	private String name;// 昵称
 	private String email;// 邮箱
-	private String addr;// 地址
 	private Integer state;//激活状态
-	private String code;//验证码
-	public Integer getUid() {
-		return uid;
+	private String code;//激活码
+	private Date create_date;//创建日期
+	public Integer getId() {
+		return id;
 	}
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;
@@ -28,23 +29,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
 	}
 	public Integer getState() {
 		return state;
@@ -58,5 +47,11 @@ public class User {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
 }
