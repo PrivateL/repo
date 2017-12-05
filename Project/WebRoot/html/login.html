@@ -19,12 +19,18 @@
     <link href="../css/yhsd-desktop-170719.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../css/youpage.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../css/iconfont.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../main.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="../css/main.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../css/user.css" media="screen" rel="stylesheet" type="text/css">
+
+
     <script src="../js/tracker-0.0.2.min.js.下载"></script>
     <script src="../js/jquery-1.11.3.min.js.下载" type="text/javascript"></script>
     <script src="../js/jssdk-0.0.18.min.js.下载" type="text/javascript"></script>
     <script src="../js/lazyload.min.js.下载" type="text/javascript"></script>
+
+    <!-- 引入Bootstrap,js、css文件 -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
 
     <!-- 社交分享信息 -->
 
@@ -110,7 +116,17 @@
             }
         }
 
+        /*设置动态生成验证码标签的样式*/
+        #codeE{
+            font-size: 20px;
+            border: 1px dashed #999999;
+            display: inline-block;
+            padding: 5px;
+        }
+
+
     </style>
+    <script src = "../js/verification.js"></script>
     <script src="../js/jquery.qrcode.min.js.下载"></script>
 
     <script>
@@ -152,7 +168,8 @@
         background-position: center center;
         background-image: none;
         background-image: url("data:image/gif;base64,R0lGODlhEAALAPQAAP///5mZmfDw8Ozs7Pf395ycnJmZmaysrM3NzcDAwOTk5Kenp7e3t9DQ0MHBweXl5ampqZubm7i4uPX19e/v7/v7+7CwsPHx8fr6+uLi4tnZ2erq6vj4+JmZmZmZmZmZmSH5BAkLAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAALAAAFLSAgjmRpnqSgCuLKAq5AEIM4zDVw03ve27ifDgfkEYe04kDIDC5zrtYKRa2WQgAh+QQJCwAAACwAAAAAEAALAAAFJGBhGAVgnqhpHIeRvsDawqns0qeN5+y967tYLyicBYE7EYkYAgAh+QQJCwAAACwAAAAAEAALAAAFNiAgjothLOOIJAkiGgxjpGKiKMkbz7SN6zIawJcDwIK9W/HISxGBzdHTuBNOmcJVCyoUlk7CEAAh+QQJCwAAACwAAAAAEAALAAAFNSAgjqQIRRFUAo3jNGIkSdHqPI8Tz3V55zuaDacDyIQ+YrBH+hWPzJFzOQQaeavWi7oqnVIhACH5BAkLAAAALAAAAAAQAAsAAAUyICCOZGme1rJY5kRRk7hI0mJSVUXJtF3iOl7tltsBZsNfUegjAY3I5sgFY55KqdX1GgIAIfkECQsAAAAsAAAAABAACwAABTcgII5kaZ4kcV2EqLJipmnZhWGXaOOitm2aXQ4g7P2Ct2ER4AMul00kj5g0Al8tADY2y6C+4FIIACH5BAkLAAAALAAAAAAQAAsAAAUvICCOZGme5ERRk6iy7qpyHCVStA3gNa/7txxwlwv2isSacYUc+l4tADQGQ1mvpBAAIfkECQsAAAAsAAAAABAACwAABS8gII5kaZ7kRFGTqLLuqnIcJVK0DeA1r/u3HHCXC/aKxJpxhRz6Xi0ANAZDWa+kEAA7"), none;
-    }</style>
+    }
+    </style>
     <style>#img_zoom-box, .img_zoom--inner {
         text-align: center;
         white-space: nowrap
@@ -373,8 +390,9 @@
                 <div id="yhsd-header-search-ipt" class="header-search pc-show">
                     <input class="search-ipt settings-ipt_border" type="text" placeholder="搜索全站">
                 </div>
+                <!-- 点击登录-->
                 <a id="customer-item3" class="header-link settings-top_color icon-ziyuan iconfont"
-                   href="http://hongyuan.theme.yurl.vip/account/login"></a>
+                   href="login.html"></a>
 
                 <div id="yhsd_topCart_show" class="header-cart">
                     <span class="main-ico main-ico-cart icon-gouwuche iconfont"></span><span
@@ -395,7 +413,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -403,32 +420,40 @@
     <div id="content_for_layout" class="yhsd-base">
         <div class="wrapper log-block-outer">
             <div class="cont log-block-inner register">
-                <div class="log-block"><h4 class="yhsd-font-title">登录</h4>
+                <div class="log-block">
+                    <h4 class="yhsd-font-title" style="text-align:center ">登录</h4>
 
-                    <form class="input-field" id="yhsd-register-inputField" action="javascript:void(0);">
+                    <form   id="myLogin" >
                         <div class="input-area input-area-lg" data-state="">
-                            <div class="title">手机/邮箱/用户名</div>
-                            <input id="yhsd-register-type" class="input yhsd-font-text" type="text" name="account"
-                                   maxlength="200">
+                            <!--<div class="title" >手机/邮箱/用户名</div>-->
+
+                                <input id="login-User" class="form-control" type="text" placeholder="手机/邮箱/用户名"   maxlength="200">
 
                             <div class="tips"></div>
                         </div>
 
-
                         <div class="input-area input-area-lg" data-state="">
-                            <div class="title">输入密码</div>
-                            <input id="yhsd-register-code" class="input yhsd-font-text" type="password" name="password"
-                                   maxlength="40">
+                            <!--<div class="title">输入密码</div>-->
+                            <input id="login-Pwd" class="form-control" type="password"
+                                   maxlength="40" placeholder="输入密码">
 
                             <div class="tips"></div>
                         </div>
 
-                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="http://localhost:63342/college_in_life/template/BigLibrary/html/register.html"
-                                                                   class="yhsd-font-link">注册</a></div>
+                        <div class="input-area input-area-lg " data-state="">
+                            <!--<div class="title">输入验证码</div>-->
+                            <input  id="login-Code"  class="form-control" type="text" placeholder="输入验证码"
+                                   maxlength="200"></br>
+                            <label id="codeE"> </label>&nbsp;
+                            <a id="aChangeCode" href="javascript:void(0)">&nbsp;&nbsp;换一张</a>
+
+                        </div>
+
+                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="register.html"
+                                                                   class="yhsd-font-link">&nbsp;&nbsp;点击注册</a></div>
                         <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit">登录
-                        </button>
+                         </button>
                     </form>
-
                 </div>
             </div>
         </div>
