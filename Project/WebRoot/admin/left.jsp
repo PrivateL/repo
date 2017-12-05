@@ -26,7 +26,7 @@
 		d.add('0101','01','用户管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');
 		d.add('010101','0101','用户管理','${pageContext.request.contextPath}/user_adminFindAll.action?page=1','','mainFrame');
 		d.add('0102','01','商品管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');
-		d.add('010201','0102','商品管理','${pageContext.request.contextPath}/product_adminFindAll.action?page=1','','mainFrame');
+		d.add('010201','0102','音频管理','${pageContext.request.contextPath}/proAudio_adminFindAll.action?page=1','','mainFrame');
 		d.add('0103','01','订单管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');
 		d.add('010301','0103','查询所有订单','${pageContext.request.contextPath}/order_adminFindAll.action?page=1','','mainFrame');
 		d.add('010302','0103','未付款订单','${pageContext.request.contextPath}/order_adminFindByState.action?page=1&state=1','','mainFrame');

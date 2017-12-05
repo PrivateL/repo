@@ -29,6 +29,12 @@
 			<result name="quit" type="redirectAction">index</result>
 		</action>
 		
+		<!-- 音频的Action -->
+		<action name="proAudio_*" class="proAudioAction" method="{1}">
+			<result name="findAll">/admin/product/pro_audio/list.jsp</result>
+		</action>
+		
+		
 		<!-- 后台的Action -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
 			<result name="loginSuccess">/admin/home.jsp</result>
