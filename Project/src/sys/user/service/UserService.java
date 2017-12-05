@@ -31,7 +31,6 @@ public class UserService {
 	}
 
 	public void save(User user) {
-		System.out.println(user.getAddr());
 		user.setState(1);//0 未激活 1 已激活
 		String code = UUIDUtil.getUUID()+UUIDUtil.getUUID();//64Bytes
 		user.setCode(code);

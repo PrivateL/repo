@@ -32,7 +32,6 @@ public class UserDao extends HibernateDaoSupport{//HibernateDaoSupport提供模�
 	 * @param user
 	 */
 	public void save(User user) {
-		System.out.println(user.getAddr());
 		this.getHibernateTemplate().save(user);
 	}
 	
