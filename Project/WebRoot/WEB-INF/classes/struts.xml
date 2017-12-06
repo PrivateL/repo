@@ -22,11 +22,11 @@
 		<!-- 用户模块的Action -->
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="registPage">/jsp/regist.jsp</result>
-			<result name="input">/jsp/login_or_regist.jsp</result>
-			<result name="registSuccess">/jsp/index.jsp</result>
+			<result name="registSuccess">/jsp/login.jsp</result>
 			<result name="loginPage">/jsp/login.jsp</result>
 			<result name="loginSuccess" type="redirectAction">index</result>
 			<result name="quit" type="redirectAction">index</result>
+			<!-- <result name="input">/jsp/index.jsp</result> -->
 		</action>
 		
 		<!-- 分类的Action -->
