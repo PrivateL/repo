@@ -16,6 +16,7 @@ public class ProAudioAction  extends ActionSupport implements ModelDriven<ProAud
 	
 	private Integer page;// 当前页面
 	
+	private String authorName;// 说书人名字
 	
 	public void setPage(Integer page) {
 		this.page = page;
@@ -38,10 +39,10 @@ public class ProAudioAction  extends ActionSupport implements ModelDriven<ProAud
 		return "findAll";
 	}
 	
-	// 跳转到添加音频页面
-	public String addPage(){
+	// 存储音频
+	public String save(){
 		
 		
-		return "addPageSuccess";
+		return "saveSuccess";
 	}
 }

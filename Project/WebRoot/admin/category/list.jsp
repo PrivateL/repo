@@ -20,7 +20,7 @@
 					
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>一级分类列表</strong>
+							<strong>分类列表</strong>
 						</TD>
 					</tr>
 					<tr>
@@ -43,7 +43,7 @@
 										序号
 									</td>
 									<td align="center" width="17%">
-										一级分类名称
+										分类名称
 									</td>
 									<td width="7%" align="center">
 										编辑
@@ -65,13 +65,13 @@
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/category_edit.action?ctgId=<s:property value="#c.ctgId"/>">
+												<a href="${pageContext.request.contextPath}/category_edit.action?ctgSecId=<s:property value="#c.ctgSecId"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/category_delete.action?ctgId=<s:property value="#c.ctgId"/>">
+												<a href="${pageContext.request.contextPath}/category_delete.action?ctgSecId=<s:property value="#c.ctgSecId"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>

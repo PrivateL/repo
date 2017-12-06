@@ -21,7 +21,7 @@ public class CategoryAction extends ActionSupport implements ModelDriven<Categor
 		this.categoryService = categoryService;
 	}
 	
-	// 查询所有一级分类
+	// 查询所有分类
 	public String adminFindAll(){
 		List<Category> cList = categoryService.findAll();
 		// 压入值栈:
@@ -37,7 +37,7 @@ public class CategoryAction extends ActionSupport implements ModelDriven<Categor
 	
 	// 编辑一级分类
 	public String edit(){
-		category = categoryService.findByid(category.getCtgId());
+		category = categoryService.findByid(category.getCtgSecId());
 		return "editSuccess";
 	}
 	
@@ -51,5 +51,20 @@ public class CategoryAction extends ActionSupport implements ModelDriven<Categor
 	public String delete(){
 		categoryService.delete(category);
 		return "deleteSuccess";
+	}
+	
+	// 音频添加时的分类
+	public String addProAudio(){
+		List<Category> cList = categoryService.findAll();
+		// 压入值栈:
+		ActionContext.getContext().getValueStack().set("cList", cList);
+		return "addProAudio";
+	}
+	// 作者专栏添加时的分类
+	public String addAuthor(){
+		List<Category> cList = categoryService.findAll();
+		// 压入值栈:
+		ActionContext.getContext().getValueStack().set("cList", cList);
+		return "addAuthor";
 	}
 }
