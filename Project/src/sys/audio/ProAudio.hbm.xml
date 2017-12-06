@@ -15,12 +15,10 @@
                 <comment>标题或对应的书名</comment>
             </column>
         </property>
-        <property name="ctgSecId" type="integer">
-            <column name="ctg_sec_id">
-                <comment>所属二级分类的id</comment>
-            </column>
-        </property>
-        <property name="authorId" type="string">
+        
+         <many-to-one name="category" class="sys.category.Category" column="ctg_sec_id" lazy="false"/>
+        
+        <property name="authorId" type="integer">
             <column name="author_id" not-null="true">
                 <comment>作者</comment>
             </column>

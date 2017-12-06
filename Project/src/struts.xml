@@ -22,16 +22,42 @@
 		<!-- 用户模块的Action -->
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="registPage">/jsp/regist.jsp</result>
-			<result name="input">/jsp/login_or_regist.jsp</result>
-			<result name="registSuccess">/jsp/index.jsp</result>
+			<result name="registSuccess">/jsp/login.jsp</result>
 			<result name="loginPage">/jsp/login.jsp</result>
 			<result name="loginSuccess" type="redirectAction">index</result>
 			<result name="quit" type="redirectAction">index</result>
+			<!-- <result name="input">/jsp/index.jsp</result> -->
 		</action>
+		
+		<!-- 分类的Action -->
+		<action name="category_*" class="categoryAction" method="{1}">
+			<result name="findAll">/admin/category/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="editSuccess">/admin/category/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="addProAudio">/admin/product/pro_audio/add.jsp</result>
+			<result name="addAuthor">/admin/author/add.jsp</result>
+		</action>
+		
+		
+		<!-- 音频的Action -->
+		<action name="proAudio_*" class="proAudioAction" method="{1}">
+			<result name="findAll">/admin/product/pro_audio/list.jsp</result>
+		
+		</action>
+		
+		<!-- 作者专栏的Action -->
+		<action name="authorColumn_*" class="authorColumnAction" method="{1}">
+			<result name="findAll">/admin/author/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">authorColumn_adminFindAll.action</result>
+		</action>
+		
 		
 		<!-- 后台的Action -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
 			<result name="loginSuccess">/admin/home.jsp</result>
+			
 		</action>
 	</package>
 	

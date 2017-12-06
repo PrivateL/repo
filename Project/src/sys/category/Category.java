@@ -1,13 +1,13 @@
 package sys.category;
 
 /**
- * 一级分类
+ * 分类
  * @author huangkai
  *
  */
 public class Category{
 
-	private Integer ctgId;
+	private Integer ctgSecId;
 	private String ctgName;
 
 	// Constructors
@@ -21,14 +21,13 @@ public class Category{
 		this.ctgName = ctgName;
 	}
 
-	// Property accessors
-
-	public Integer getCtgId() {
-		return this.ctgId;
+	
+	public Integer getCtgSecId() {
+		return ctgSecId;
 	}
 
-	public void setCtgId(Integer ctgId) {
-		this.ctgId = ctgId;
+	public void setCtgSecId(Integer ctgSecId) {
+		this.ctgSecId = ctgSecId;
 	}
 
 	public String getCtgName() {

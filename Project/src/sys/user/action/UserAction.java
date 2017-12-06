@@ -1,6 +1,7 @@
 package sys.user.action;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,11 +35,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	/**
 	 * 接收验证码
 	 */
-	private String checkCode;
+	/*private String checkCode;
 
 	public void setCheckcode(String checkCode) {
 		this.checkCode = checkCode;
-	}
+	}*/
 
 	// 注入用户的Service
 	private UserService userService;
@@ -50,7 +51,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	/**
 	 * 注册页面
 	 */
-	public String registPage() {
+	public String registerPage() {
+		logger.info("run registerPage() methon");
 		return "registPage";
 	}
 
@@ -60,51 +62,55 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * @throws IOException
 	 */
 	public String findByUsername() throws IOException {
+		logger.info("run findByUsername() methon");
 		// 调用service进行查询
-		User existUser = userService.findByUsername(user.getUsername());// 返回数据库中存在的User对象
+		User existUser = userService.findByUsername(user.getEmail());// 返回数据库中存在的User对象
 		// 获得response对象，设置编码，并向页面输出
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html;charset=UTF-8");
 		// 判断
-		if (user.getUsername() != null && !user.getUsername().trim().equals("")) {
+		if (user.getEmail() != null && !user.getEmail().trim().equals("")) {
 			// 已存在
 			if (existUser != null) {
 				ServletActionContext.getRequest().getSession()
 						.setAttribute("access", "false");
-				response.getWriter().println("<font color='red'>用户名已存在</font>");
-			} else {// 不存在，用户名可以使用
+				response.getWriter().println("<font color='red'>邮箱已使用</font>");
+			} else {// 不存在，邮箱可以使用
 				ServletActionContext.getRequest().getSession()
 						.setAttribute("access", "true");
 				response.getWriter().println(
-						"<font color='green'>用户名可以使用</font>");
+						"<font color='green'>邮箱可用</font>");
 			}
 		} else {
 			ServletActionContext.getRequest().getSession()
 					.setAttribute("access", "false");
-			response.getWriter().println("<font color='red'>用户名不能为空</font>");
-			logger.info("用户名不能为空");
+			response.getWriter().println("<font color='red'>邮箱不能为空</font>");
+			logger.info("邮箱不能为空");
 		}
 		return NONE;
 	}
 
 	/**
 	 * 注册
+	 * @throws ParseException 
 	 */
-	public String regist() {
+	public String register() throws ParseException{
+		logger.info("run register() methon");
+		logger.info(user.getEmail()+";"+user.getUsername());
 		// 用户名已存在
-		if (((String) ServletActionContext.getRequest().getSession()
+		/*if (((String) ServletActionContext.getRequest().getSession()
 				.getAttribute("access")).equals("false")) {
 			this.addActionError("用户名已存在");
 			return "registPage";
-		}
+		}*/
 		// 判断验证码
 		// 从session中获取正确的验证码
-		String checkcode_1 = (String) ServletActionContext.getRequest()
+		/*String checkcode_1 = (String) ServletActionContext.getRequest()
 				.getSession().getAttribute("checkcode");
 		if (!checkCode.equalsIgnoreCase(checkcode_1)) {
 			this.addActionError("验证码错误");
 			return "registPage";
-		}
+		}*/
 
 		userService.save(user);
 		return "registSuccess";
@@ -115,6 +121,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 登录页面
 	 */
 	public String loginPage() {
+		logger.info("run loginPage() methon");
 		return "loginPage";
 	}
 
@@ -122,18 +129,26 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 登录
 	 */
 	public String login() {
+		logger.info("run login() methon");
 		User existUser = userService.login(user);
 		if (existUser == null) {
-			// 登录失败
-			this.addActionError("登录失败，密码或用户名错误");
+			// 用户不存在
+			this.addActionError("密码或用户名错误");
 			return "loginPage";
-		} else {
-			// 登录成功
-			// 将用户信息存入session中
-			ServletActionContext.getRequest().getSession()
-					.setAttribute("existUser", existUser);
-			// 页面跳转
-			return "loginSuccess";
+		} else {// 用户存在
+			//已激活
+			if(existUser.getState()==1){
+				// 将用户信息存入session中
+				ServletActionContext.getRequest().getSession()
+						.setAttribute("existUser", existUser);
+				// 页面跳转
+				return "loginSuccess";
+			}else{
+				//未激活
+				this.addActionError("该用户未激活");
+				return "loginPage";
+			}
+			
 		}
 	}
 
@@ -142,6 +157,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 退出
 	 */
 	public String quit() {
+		logger.info("run quit() methon");
 		// 销毁session
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "quit";

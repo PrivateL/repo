@@ -19,21 +19,25 @@
 
     <link rel="shortcut icon" href="http://asset.ibanquan.com/image/57acb51702282e3f00000003/s.ico?v=0"
           type="image/x-icon">
-    <link href="../css/base-160225.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/yhsd-iconfont-151010.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/yhsd-desktop-170719.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/youpage.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/iconfont.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/main.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/user.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../js/tracker-0.0.2.min.js.下载"></script>
-    <script src="../js/jquery-1.11.3.min.js.下载" type="text/javascript"></script>
-    <script src="../js/jssdk-0.0.18.min.js.下载" type="text/javascript"></script>
-    <script src="../js/lazyload.min.js.下载" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/css/base-160225.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/yhsd-iconfont-151010.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/yhsd-desktop-170719.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/youpage.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/iconfont.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/main.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/user.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/js/tracker-0.0.2.min.js.下载"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js.下载" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jssdk-0.0.18.min.js.下载" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/lazyload.min.js.下载" type="text/javascript"></script>
+
+
+    <!-- 引入Bootstrap,js、css文件 -->
+    <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
 
     <!-- 社交分享信息 -->
-
-
     <meta property="og:title" content="Register - BigLibrary">
     <meta property="og:description" content="content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="//asset.ibanquan.com/image/57acb53a02282e3f00000007/s.png?v=0">
@@ -116,7 +120,8 @@
         }
 
     </style>
-    <script src="../js/jquery.qrcode.min.js.下载"></script>
+    <script src = "${pageContext.request.contextPath}/js/verification.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.qrcode.min.js.下载"></script>
 
     <script>
         window.productImage = '53f649ffe2931e0b91000007/noimage.png';
@@ -317,16 +322,16 @@
 </head>
 <body class=" ">
 <!-- 社交分享图 (300x300) -->
-<img class="you_share_img" src="../img/s.png" alt="Register - BigLibrary">
+<img class="you_share_img" src="${pageContext.request.contextPath}/img/s.png" alt="Register - BigLibrary">
 <!-- End 社交分享图 -->
 <div class="page settings-body_background yhsd_free_scope" style="height: auto; overflow: auto;">
     <div class="wrapper wrapper-header settings-top_background">
         <div class="cont-nav settings-top_background clearfix">
             <div class="mod logo settings-text_color">
                 <strong>
-                    <a class="logo-link settings-h1_color" href="http://localhost:63342/college_in_life/template/BigLibrary/html/index.html">
+                    <a class="logo-link settings-h1_color" href="${pageContext.request.contextPath}/index.action">
 
-                        <img src="img/logo.png" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
 
                     </a>
                 </strong>
@@ -335,36 +340,46 @@
                 <!-- 一级菜单 -->
                 <ul id="top-nav-link" class="nav-link">
                     <li>
-                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="http://localhost:63342/college_in_life/template/BigLibrary/html/index.html">首页</a>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="index.html">首页</a>
 
                         <!-- 二级菜单 -->
 
-                    </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905782" href="http://hongyuan.theme.yurl.vip/products">听书</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905782" href="听书.html">听书</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905783" href="http://hongyuan.theme.yurl.vip/pages/g000002">商城</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905783" href="电子书与商城.html">商城</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li class="">
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905784" href="http://hongyuan.theme.yurl.vip/blogs">电子书</a>
+                    </li>
+                    <li class="">
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905784" href="电子书与商城.html">电子书</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905785" href="http://hongyuan.theme.yurl.vip/posts">订阅专刊</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905785" href="专栏订阅.html">订阅专刊</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905786"href="http://hongyuan.theme.yurl.vip/posts">个人中心</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905786" href="#">个人中心</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li>
+                    </li>
                 </ul>
                 <a id="nav_mobile" class="nav-link-mobile icon-comiiscaidan iconfont settings-top_color"
                    href="javascript:void(0);">
@@ -378,15 +393,14 @@
                 <div id="yhsd-header-search-ipt" class="header-search pc-show">
                     <input class="search-ipt settings-ipt_border" type="text" placeholder="搜索全站">
                 </div>
-                <!-- 点击登录-->
+                <!-- 点击登录 -->
                 <a id="customer-item3" class="header-link settings-top_color icon-ziyuan iconfont"
-                   href="login.html"></a>
+                   href="${pageContext.request.contextPath}/user_login.action"></a>
 
                 <div id="yhsd_topCart_show" class="header-cart">
                     <span class="main-ico main-ico-cart icon-gouwuche iconfont"></span><span
                         class="topCart-quantity settings-top_color" id="yhsd_topCart_quantityTitle">0</span>
                 </div>
-
                 <!--            <a id="customer-item1" class="header-link settings-top_color pc-show" href="/account/login">登录</a>
                            <a id="customer-item2" class="header-link settings-top_color pc-show" href="/account/register" >注册</a> -->
                 <!-- .顶部购物车 -->
@@ -409,17 +423,22 @@
     <div id="content_for_layout" class="yhsd-base">
         <div class="wrapper log-block-outer">
             <div class="cont log-block-inner register">
-                <div class="log-block"><h4 class="yhsd-font-title">注册</h4>
+                <div class="log-block">
+                    <h4 class="yhsd-font-title " style="text-align:center ">注册</h4>
 
-                    <form class="input-field" id="yhsd-register-inputField" action="javascript:void(0);">
+                    <form class="input-field" id="yhsd-register-inputField" method="post" action="${pageContext.request.contextPath }/user_register.action">
                         <div class="input-area input-area-lg" data-state="">
-                            <div class="title">手机/邮箱/用户名</div>
-                            <input id="yhsd-register-type" class="input yhsd-font-text" type="text" name="account"
-                                   maxlength="200">
+                        	<input id="login-User" class="form-control" name="username" type="text" placeholder="昵称"   maxlength="200">
+                            
+                            <div class="tips"></div>
+                        </div>
+                        <div class="input-area input-area-lg" data-state="">
+                        	<!--<div class="title">手机/邮箱/用户名</div>-->
+                            <input id="login-User" class="form-control" name="email" type="text" placeholder="邮箱"   maxlength="200">
 
                             <div class="tips"></div>
                         </div>
-                        <div id="yhsd-register-vcode-show" class="input-group" style="display: none">
+                      <!--   <div id="yhsd-register-vcode-show" class="input-group" style="display: none">
                             <div class="input-area input-area-lg" data-state="">
                                 <div class="title">手机验证码</div>
                                 <input id="yhsd-register-vcode" class="input yhsd-font-text" type="text"
@@ -428,22 +447,27 @@
                                 <div class="tips"></div>
                             </div>
                             <a id="yhsd-register-getVcode" href="javascript:void(0);"
-                               class="btn btn-input yhsd-font-link">获取验证码</a></div>
+                               class="btn btn-input yhsd-font-link">获取验证码</a>
+                        </div> -->
+
                         <div class="input-area input-area-lg" data-state="">
-                            <div class="title">设置密码</div>
-                            <input id="yhsd-register-code" class="input yhsd-font-text" type="password" name="password"
-                                   maxlength="40">
+                            <!--<div class="title">设置密码</div>-->
+
+                            <input id="login-Pwd" class="form-control" type="password" name="password"
+                                   maxlength="40" placeholder=" 设置密码">
 
                             <div class="tips"></div>
                         </div>
-                        <div class="input-area input-area-lg" data-state="">
+                        <!-- <div class="input-area input-area-lg" data-state="">
                             <div class="title">确认密码</div>
                             <input id="yhsd-register-codeConfirm" class="input yhsd-font-text" type="password"
                                    name="password_again" maxlength="40">
+                            <input id="login-surePwd" class="form-control" type="password" name="repassword"
+                                   maxlength="40" placeholder=" 确认密码">
 
                             <div class="tips"></div>
-                        </div>
-                        <div class="rapid yhsd-font-desc">已有账号？请<a href="login.html"
+                        </div> -->
+                        <div class="rapid yhsd-font-desc">已有账号？请<a href="${pageContext.request.contextPath}/user_login.action"
                                                                    class="yhsd-font-link">&nbsp;&nbsp;直接登录</a></div>
                         <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit">注册
                         </button>
@@ -461,7 +485,7 @@
                 <div class="footer-logo">
                     <a class="logo-link settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                        <img src="../logo" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
 
                     </a>
                 </div>
@@ -538,7 +562,7 @@
                     <div class="mobile_nav_top">
                         <a class="logo-link mobile_nav_logo settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                            <img src="../logo" alt="BigLibrary">
+                            <img src="../files/logo" alt="BigLibrary">
 
                         </a>
                         <span class="mobile_nav_close iconfont icon-guanbi"></span>
@@ -703,11 +727,11 @@
 </script>
 
 
-<script src="../js/yhsd-desktop-170719.min.js.下载" type="text/javascript"></script>
-<script src="../js/youpage.min.js.下载" type="text/javascript"></script>
-<script src="../js/main.js.下载" type="text/javascript"></script>
-<script src="../js/user.js.下载" type="text/javascript"></script>
-<script src="../js/img_zoom.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/yhsd-desktop-170719.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/youpage.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/main.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/user.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/img_zoom.min.js.下载" type="text/javascript"></script>
 
 </body>
 </html>

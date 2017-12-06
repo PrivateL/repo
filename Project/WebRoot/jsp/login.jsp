@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0047)http://hongyuan.theme.yurl.vip/account/register -->
@@ -425,34 +426,34 @@
             <div class="cont log-block-inner register">
                 <div class="log-block">
                     <h4 class="yhsd-font-title" style="text-align:center ">登录</h4>
-
-                    <form   id="myLogin" >
+					<div><strong><s:actionerror/></strong></div>
+                    <form   id="myLogin" method="post" action="${ pageContext.request.contextPath}/user_login.action">
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title" >手机/邮箱/用户名</div>-->
 
-                                <input id="login-User" class="form-control" type="text" placeholder="手机/邮箱/用户名"   maxlength="200">
+                                <input id="login-User" class="form-control"  name="email" type="text" placeholder="邮箱"   maxlength="200">
 
                             <div class="tips"></div>
                         </div>
 
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title">输入密码</div>-->
-                            <input id="login-Pwd" class="form-control" type="password"
+                            <input id="login-Pwd" class="form-control" name="password" type="password"
                                    maxlength="40" placeholder="输入密码">
 
                             <div class="tips"></div>
                         </div>
 
-                        <div class="input-area input-area-lg " data-state="">
-                            <!--<div class="title">输入验证码</div>-->
+                        <!-- <div class="input-area input-area-lg " data-state="">
+                            <div class="title">输入验证码</div>
                             <input  id="login-Code"  class="form-control" type="text" placeholder="输入验证码"
                                    maxlength="200"></br>
                             <label id="codeE"> </label>&nbsp;
                             <a id="aChangeCode" href="javascript:void(0)">&nbsp;&nbsp;换一张</a>
 
-                        </div>
+                        </div> -->
 
-                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="register.html"
+                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="${pageContext.request.contextPath}/user_register.action"
                                                                    class="yhsd-font-link">&nbsp;&nbsp;点击注册</a></div>
                         <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit">登录
                          </button>

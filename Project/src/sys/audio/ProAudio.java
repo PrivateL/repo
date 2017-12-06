@@ -2,56 +2,27 @@ package sys.audio;
 
 import java.util.Date;
 
+import sys.category.Category;
+
 /**
  * ProAudio entity. @author MyEclipse Persistence Tools
  */
-
+// 音频
 public class ProAudio{
 
 	// Fields
 
 	private Integer audioId;
-	private String audioName;
-	private Integer ctgSecId;
-	private String authorId;
-	private String audioDesc;
-	private String audioLong;
-	private Integer audioWeight;
-	private String audioImage;
-	private String audioUrl;
-	private Date audioUploadTime;
-	private Integer pathId;
-
-	// Constructors
-
-	/** default constructor */
-	public ProAudio() {
-	}
-
-	/** minimal constructor */
-	public ProAudio(String authorId, String audioDesc) {
-		this.authorId = authorId;
-		this.audioDesc = audioDesc;
-	}
-
-	/** full constructor */
-	public ProAudio(String audioName, Integer ctgSecId, String authorId,
-			String audioDesc, String audioLong, Integer audioWeight,
-			String audioImage, String audioUrl, Date audioUploadTime,
-			Integer pathId) {
-		this.audioName = audioName;
-		this.ctgSecId = ctgSecId;
-		this.authorId = authorId;
-		this.audioDesc = audioDesc;
-		this.audioLong = audioLong;
-		this.audioWeight = audioWeight;
-		this.audioImage = audioImage;
-		this.audioUrl = audioUrl;
-		this.audioUploadTime = audioUploadTime;
-		this.pathId = pathId;
-	}
-
-	// Property accessors
+	private String audioName;// 标题或对应的书名
+	private Category category;// 所属分类的id
+	private Integer authorId;// 说书人的id
+	private String audioDesc;// 音频描述
+	private String audioLong;// 时长
+	private Integer audioWeight;// 权值，衡量是否最受欢迎或计算点击量等
+	private String audioImage;// 封面图片地址
+	private String audioUrl;// 音频存放地址
+	private Date audioUploadTime;// 音频的上传时间
+	private Integer pathId;// 所属学习路径的id
 
 	public Integer getAudioId() {
 		return this.audioId;
@@ -69,19 +40,21 @@ public class ProAudio{
 		this.audioName = audioName;
 	}
 
-	public Integer getCtgSecId() {
-		return this.ctgSecId;
+
+
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCtgSecId(Integer ctgSecId) {
-		this.ctgSecId = ctgSecId;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public String getAuthorId() {
-		return this.authorId;
+	public Integer getAuthorId() {
+		return authorId;
 	}
 
-	public void setAuthorId(String authorId) {
+	public void setAuthorId(Integer authorId) {
 		this.authorId = authorId;
 	}
 
