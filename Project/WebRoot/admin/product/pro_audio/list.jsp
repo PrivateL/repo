@@ -8,7 +8,7 @@
 		<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<script type="text/javascript">
 			function addProduct(){
-				window.location.href = "${pageContext.request.contextPath}/product_addPage.action";
+				window.location.href = "${pageContext.request.contextPath}/proAudio_addPage.action";
 			}
 		</script>
 	</HEAD>

@@ -21,13 +21,23 @@
 		
 		<!-- 用户模块的Action -->
 		<action name="user_*" class="userAction" method="{1}">
-			<result name="registPage">/jsp/login_or_regist.jsp</result>
+			<result name="registPage">/jsp/regist.jsp</result>
 			<result name="input">/jsp/login_or_regist.jsp</result>
-			<result name="registSuccess">/jsp/login_or_regist.jsp</result>
-			<result name="loginPage">/jsp/login_or_regist.jsp</result>
+			<result name="registSuccess">/jsp/index.jsp</result>
+			<result name="loginPage">/jsp/login.jsp</result>
 			<result name="loginSuccess" type="redirectAction">index</result>
 			<result name="quit" type="redirectAction">index</result>
 		</action>
+		
+		<!-- 一级分类的Action -->
+		<action name="category_*" class="categoryAction" method="{1}">
+			<result name="findAll">/admin/category/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="editSuccess">/admin/category/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">category_adminFindAll.action</result>
+		</action>
+		
 		
 		<!-- 音频的Action -->
 		<action name="proAudio_*" class="proAudioAction" method="{1}">

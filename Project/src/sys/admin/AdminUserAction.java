@@ -23,13 +23,16 @@ public class AdminUserAction extends ActionSupport implements ModelDriven<AdminU
 	 * 后台登陆的方法:
 	 */
 	public String login(){
-		System.out.println(adminUser.getUsername());
+		if(adminUser.getUsername() == "" || adminUser.getPassword() == ""){
+			this.addActionError("用户名或密码不能为空!");
+			return "error";
+		}
 		 AdminUser existAdminUser = adminUserService.login(adminUser);
 		
 		if(existAdminUser == null){
 			// 登陆失败
 			this.addActionError("用户名或密码错误!");
-			return LOGIN;
+			return "error";
 		}else{
 			// 登陆成功
 			ServletActionContext.getRequest().getSession().setAttribute("existAdminUser", existAdminUser);
