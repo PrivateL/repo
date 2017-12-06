@@ -28,13 +28,20 @@ public class ProAudioAction  extends ActionSupport implements ModelDriven<ProAud
 	public void setProAudioService(ProAudioService proAudioService) {
 		this.proAudioService = proAudioService;
 	}
-	/**
-	 * 后台查询所有订单
-	 */
+	
+	
+	// 后台查询所有音频
 	public String adminFindAll() {
 		sys.utils.PageBean<ProAudio> pageBean = proAudioService.findByPage(page);
 		// 将PageBean的数据保存到页面:
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findAll";
+	}
+	
+	// 跳转到添加音频页面
+	public String addPage(){
+		
+		
+		return "addPageSuccess";
 	}
 }

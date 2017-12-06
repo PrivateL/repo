@@ -47,6 +47,7 @@
 			<list>
 				<value>sys/user/entity/User.hbm.xml</value>
 				<value>sys/admin/AdminUser.hbm.xml</value>
+				<value>sys/category/Category.hbm.xml</value>
 				<value>sys/audio/ProAudio.hbm.xml</value>
 			</list>
 		</property>
@@ -76,6 +77,11 @@
 		<property name="userService" ref="userService"/>
 	</bean>
 	
+	<!-- 一级分类Action -->
+	<bean id="categoryAction" class="sys.category.CategoryAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	
 	<!-- 音频Action -->
 	<bean id="proAudioAction" class="sys.audio.ProAudioAction" scope="prototype">
 		<property name="proAudioService" ref="proAudioService"></property>
@@ -91,6 +97,12 @@
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
+	<!-- 一级分类Service -->
+	<bean id="categoryService" class="sys.category.CategoryService" scope="prototype">
+		<property name="categoryDao" ref="categoryDao"></property>
+	</bean>
+	
+	
 	<!-- 音频Service -->
 	<bean id="proAudioService" class="sys.audio.ProAudioService">
 		<property name="proAudioDao" ref="proAudioDao"></property>
@@ -103,6 +115,11 @@
 	
 	<!-- ====================dao的配置============================== -->
 	<bean id="userDao" class="sys.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 一级分类Dao -->
+	<bean id="categoryDao" class="sys.category.CategoryDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

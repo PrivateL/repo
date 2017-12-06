@@ -29,6 +29,16 @@
 			<result name="quit" type="redirectAction">index</result>
 		</action>
 		
+		<!-- 一级分类的Action -->
+		<action name="category_*" class="categoryAction" method="{1}">
+			<result name="findAll">/admin/category/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="editSuccess">/admin/category/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">category_adminFindAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">category_adminFindAll.action</result>
+		</action>
+		
+		
 		<!-- 音频的Action -->
 		<action name="proAudio_*" class="proAudioAction" method="{1}">
 			<result name="findAll">/admin/product/pro_audio/list.jsp</result>
