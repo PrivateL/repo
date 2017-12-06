@@ -2,50 +2,22 @@ package sys.author;
 
 import java.util.Date;
 
-/**
- * AuthorColumn entity. @author MyEclipse Persistence Tools
- */
+import sys.category.Category;
 
+// 作者专栏表
 public class AuthorColumn {
 
-	// Fields
-
 	private Integer acId;
-	private String authorName;
-	private String authorDesc;
-	private String authorPhoto;
-	private String columnName;
-	private Integer ctgSecId;
-	private long coiumnPrice;
-	private Integer columnWeight;
-	private String columnDesc;
-	private String columnImage;
-	private Date columnUploadTime;
-
-	// Constructors
-
-	/** default constructor */
-	public AuthorColumn() {
-	}
-
-	/** full constructor */
-	public AuthorColumn(String authorName, String authorDesc,
-			String authorPhoto, String columnName, Integer ctgSecId,
-			long coiumnPrice, Integer columnWeight, String columnDesc,
-			String columnImage, Date columnUploadTime) {
-		this.authorName = authorName;
-		this.authorDesc = authorDesc;
-		this.authorPhoto = authorPhoto;
-		this.columnName = columnName;
-		this.ctgSecId = ctgSecId;
-		this.coiumnPrice = coiumnPrice;
-		this.columnWeight = columnWeight;
-		this.columnDesc = columnDesc;
-		this.columnImage = columnImage;
-		this.columnUploadTime = columnUploadTime;
-	}
-
-	// Property accessors
+	private String authorName;// 作者姓名
+	private String authorDesc;// 作者描述
+	private String authorPhoto;// 作者照片
+	private String columnName;// 专栏名字
+	private Category category;// 分类
+	private long coiumnPrice;// 专栏价格
+	private Integer columnWeight;// 订阅数
+	private String columnDesc;// 专栏描述
+	private String columnImage;// 专栏图片
+	private Date columnUploadTime;// 专栏上传时间
 
 	public Integer getAcId() {
 		return this.acId;
@@ -87,12 +59,12 @@ public class AuthorColumn {
 		this.columnName = columnName;
 	}
 
-	public Integer getCtgSecId() {
-		return this.ctgSecId;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCtgSecId(Integer ctgSecId) {
-		this.ctgSecId = ctgSecId;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public long getCoiumnPrice() {

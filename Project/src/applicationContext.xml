@@ -49,6 +49,7 @@
 				<value>sys/admin/AdminUser.hbm.xml</value>
 				<value>sys/category/Category.hbm.xml</value>
 				<value>sys/audio/ProAudio.hbm.xml</value>
+				<value>sys/author/AuthorColumn.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -87,25 +88,38 @@
 		<property name="proAudioService" ref="proAudioService"></property>
 	</bean>
 	
+	<!-- 作者专栏Action -->
+	<bean id="authorColumnAction" class="sys.author.AuthorColumnAction" scope="prototype">
+		<property name="authorColumnService" ref="authorColumnService"></property>
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	
 	<!-- 后台Action -->
 	<bean id="adminUserAction" class="sys.admin.AdminUserAction" scope="prototype">
 		<property name="adminUserService" ref="adminUserService"></property>
 	</bean>
+	
+	
+	
 	
 	<!-- ====================service的配置========================== -->
 	<bean id="userService" class="sys.user.service.UserService">
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
-	<!-- 一级分类Service -->
-	<bean id="categoryService" class="sys.category.CategoryService" scope="prototype">
+	<!-- 分类Service -->
+	<bean id="categoryService" class="sys.category.CategoryService">
 		<property name="categoryDao" ref="categoryDao"></property>
 	</bean>
-	
 	
 	<!-- 音频Service -->
 	<bean id="proAudioService" class="sys.audio.ProAudioService">
 		<property name="proAudioDao" ref="proAudioDao"></property>
+	</bean>
+	
+	<!-- 作者专栏Service -->
+	<bean id="authorColumnService" class="sys.author.AuthorColumnService">
+		<property name="authorColumnDao" ref="authorColumnDao"></property>
 	</bean>
 	
 	<!-- 后台Service -->
@@ -113,18 +127,26 @@
 		<property name="adminUserDao" ref="adminUserDao"></property>
 	</bean>
 	
+	
+	
+	
 	<!-- ====================dao的配置============================== -->
 	<bean id="userDao" class="sys.user.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<!-- 一级分类Dao -->
+	<!-- 分类Dao -->
 	<bean id="categoryDao" class="sys.category.CategoryDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
 	<!-- 音频Dao -->
 	<bean id="proAudioDao" class="sys.audio.ProAudioDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 作者专栏Dao -->
+	<bean id="authorColumnDao" class="sys.author.AuthorColumnDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

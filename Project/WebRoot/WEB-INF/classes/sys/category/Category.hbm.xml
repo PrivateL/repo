@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="sys.category.Category" table="category" catalog="project">
-        <id name="ctgId" type="integer">
+        <id name="ctgSecId" type="integer">
             <column name="ctg_id" />
             <generator class="native" />
         </id>
