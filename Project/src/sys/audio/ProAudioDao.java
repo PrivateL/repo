@@ -23,4 +23,12 @@ public class ProAudioDao extends HibernateDaoSupport{
 		List<ProAudio> list = this.getHibernateTemplate().executeFind(new sys.utils.PageHibernateCallback<ProAudio>(hql, null, begin, limit));
 		return list;
 	}
+
+	//排名前四的热门音频
+	@SuppressWarnings("unchecked")
+	public List<ProAudio> findHot() {
+		String hql = "from ProAudio order by audioWeight desc";
+		List<ProAudio> list = this.getHibernateTemplate().executeFind(new sys.utils.PageHibernateCallback<ProAudio>(hql, null, 0, 4));
+		return list;
+	}
 }

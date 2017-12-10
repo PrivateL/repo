@@ -96,7 +96,7 @@
 .settings-buyBtn_background{background-color:#333333}
 .settings-mainBtn_background{background-color:#333333}
 .settings-nav_background{background-color:#fff}
-.settings-mainBtnDisabled_background{ }
+.settings-mainBtnDisabled_background{background-color:white ;}
 .settings-optionSelected_background{background-color:#eeeeee}
 .settings-optionUnSelected_background{background-color:#ffffff}
 .settings-optionDisabled_background{background-color:#f7f7f7}
@@ -110,7 +110,7 @@
 
 /* 1.2 - 边框颜色 */
 .settings-main_border{border-color:#e5e5e5}
-.settings-blogs_border{ }
+.settings-blogs_border{border-color:white;}
 .settings-ipt_border{border-color:#d5d5d5}
 .settings-theme_border{border-color:#333333}
 .settings-optionSelected_border{border-color:#555555}
@@ -145,7 +145,7 @@
 .settings-buyBtn_color{color:#ffffff}
 .settings-buyBtn_color:visited{color:#ffffff}
 .settings-mainBtn_color{color:#ffffff}
-.settings-mainBtnDisabled_color{ }
+.settings-mainBtnDisabled_color{color:white ;}
 .settings-inputImpt_color{color:#fe434c}
 .settings-optionSelected_color{color:#555555}
 .settings-optionUnSelected_color{color:#333333}
@@ -397,7 +397,7 @@ text-align:center;
 .nav-link li{display:inline-block;margin:0 20px;}
 .nav-link a{white-space:nowrap;margin:0 8px;}
 .nav-link  a {border-bottom: 1px solid transparent}
-.nav-link  a:hover {border-color: #333}}
+.nav-link  a:hover {border-color: #333}
 #top-nav-link.nav-link>li:nth-child(n+10) {display: none;}
 .ie7 #top-nav-link.nav-link li,
 .ie6 #top-nav-link.nav-link li{display:inline;float:left;}
@@ -1335,7 +1335,7 @@ h3.social_bind--border {
   font-size: 14px;
   margin-top: 7px;
   line-height: 22px;
-  word-break: break-word;
+  word-break:normal;//规定自动换行的处理方案为：默认为浏览器的处理方案
   overflow-wrap: break-word;
 }
 .pro-detail-inner .pro-detail-price{
@@ -1797,7 +1797,7 @@ li {
     line-height: 80px;
   }
   .header-cart {
-    top: 
+      top: 1px;
   }
   .footer-link {
     display: inline-block;
@@ -2204,7 +2204,7 @@ width:100%;
   margin: 0 0 0 3px;
 }
 .pro_list_filter-order-item-time.active .pro_list_filter-order-item-time-sign {
-  color: ;
+  color:white ;
 }
 .pro_list_filter-order-item-price {
   position: relative;
@@ -2227,10 +2227,10 @@ width:100%;
   font-size: 13px;
 }
 .pro_list_filter-order-item-price.active_up .pro_list_filter-order-item-price-up {
-  color: ;
+  color: white;//改后
 }
 .pro_list_filter-order-item-price.active_down .pro_list_filter-order-item-price-down {
-  color: ;
+  color: white;//改后
 }
 .pro_list_filter-order-item-check {
   margin: 0 0 0 10px;

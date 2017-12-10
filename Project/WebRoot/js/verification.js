@@ -71,13 +71,24 @@ $(function(){
     $('#myLogin').submit(function(){/*点击用户登录按钮进行表单验证*/
         checkNull('#login-User','用户名不能为空！');
         checkNull('#login-Pwd','密码不能为空！');
+        checkNull('#login-Phone','手机号不能为空！');
+        checkNull('#login-Email','邮箱不能为空！');
         mathCode();
+    });
+    $('#login-Phone').blur(function(){/*焦点离开手机号输入框验证用户名是否为空*/
+        checkNull('#login-Phone','手机号不能为空！');
+    });
+    $('#login-Email').blur(function(){/*焦点离开邮箱输入框验证用户名是否为空*/
+        checkNull('#login-Email','邮箱不能为空！');
     });
     $('#login-User').blur(function(){/*焦点离开用户名输入框验证用户名是否为空*/
         checkNull('#login-User','用户名不能为空！');
     });
     $('#login-Pwd').blur(function(){/*焦点离开密码输入框验证密码是否为空*/
         checkNull('#login-Pwd','密码不能为空！');
+    });
+    $('#login-surePwd').blur(function(){/*焦点离开确认密码输入框验证密码是否为空*/
+        checkNull('#login-surePwd','确认密码不能为空！');
     });
     $('#login-Code').blur(matchCode);/*焦点离开验证码输入框检查验证码是否一致*/
 })

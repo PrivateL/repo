@@ -44,4 +44,9 @@ public class ProAudioService {
 			pageBean.setList(list);
 			return pageBean;
 		}
+		
+		//热门音频
+		public List<ProAudio> findHot(){
+			return proAudiorDao.findHot();
+		}
 }

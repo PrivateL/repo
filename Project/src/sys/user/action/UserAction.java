@@ -57,52 +57,18 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 
 	/**
-	 * 异步校验用户名
-	 * 
-	 * @throws IOException
-	 */
-	public String findByUsername() throws IOException {
-		logger.info("run findByUsername() methon");
-		// 调用service进行查询
-		User existUser = userService.findByUsername(user.getEmail());// 返回数据库中存在的User对象
-		// 获得response对象，设置编码，并向页面输出
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("text/html;charset=UTF-8");
-		// 判断
-		if (user.getEmail() != null && !user.getEmail().trim().equals("")) {
-			// 已存在
-			if (existUser != null) {
-				ServletActionContext.getRequest().getSession()
-						.setAttribute("access", "false");
-				response.getWriter().println("<font color='red'>邮箱已使用</font>");
-			} else {// 不存在，邮箱可以使用
-				ServletActionContext.getRequest().getSession()
-						.setAttribute("access", "true");
-				response.getWriter().println(
-						"<font color='green'>邮箱可用</font>");
-			}
-		} else {
-			ServletActionContext.getRequest().getSession()
-					.setAttribute("access", "false");
-			response.getWriter().println("<font color='red'>邮箱不能为空</font>");
-			logger.info("邮箱不能为空");
-		}
-		return NONE;
-	}
-
-	/**
 	 * 注册
 	 * @throws ParseException 
 	 */
 	public String register() throws ParseException{
 		logger.info("run register() methon");
 		logger.info(user.getEmail()+";"+user.getUsername());
-		// 用户名已存在
-		/*if (((String) ServletActionContext.getRequest().getSession()
+		// 该邮箱或手机号已注册
+		if (((String) ServletActionContext.getRequest().getSession()
 				.getAttribute("access")).equals("false")) {
-			this.addActionError("用户名已存在");
+			this.addActionError("该邮箱或手机号已注册");
 			return "registPage";
-		}*/
+		}
 		// 判断验证码
 		// 从session中获取正确的验证码
 		/*String checkcode_1 = (String) ServletActionContext.getRequest()
@@ -111,7 +77,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			this.addActionError("验证码错误");
 			return "registPage";
 		}*/
-
 		userService.save(user);
 		return "registSuccess";
 	}
@@ -150,6 +115,69 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			}
 			
 		}
+	}
+	
+	/**
+	 * 异步校验邮箱、手机号
+	 * 
+	 * @throws IOException
+	 */
+	public String findByEmail() throws IOException {
+		logger.info("run findByEmail() methon");
+		// 调用service进行查询
+		User existUser = userService.findByEmail(user.getEmail());// 返回数据库中存在的User对象
+		// 获得response对象，设置编码，并向页面输出
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=UTF-8");
+		// 判断
+		if (user.getEmail() != null && !user.getEmail().trim().equals("")) {
+			// 已存在
+			if (existUser != null) {
+				ServletActionContext.getRequest().getSession()
+						.setAttribute("access", "false");
+				response.getWriter().println("<font color='red'>邮箱已使用</font>");
+			} else {// 不存在，邮箱可以使用
+				ServletActionContext.getRequest().getSession()
+						.setAttribute("access", "true");
+				response.getWriter().println(""
+				/* "<font color='green'>邮箱可用</font>" */);
+			}
+		} else {
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("access", "false");
+			response.getWriter().println("<font color='red'>邮箱不能为空</font>");
+			logger.info("邮箱不能为空");
+		}
+		return NONE;
+	}
+	
+	public String findByPhone() throws IOException {
+		logger.info("run findByPhone() methon");
+		// 调用service进行查询
+		User existUser = userService.findByPhone(user.getPhone());// 返回数据库中存在的User对象
+		// 获得response对象，设置编码，并向页面输出
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=UTF-8");
+		// 判断
+		if (user.getPhone() != null && !user.getPhone().trim().equals("")) {
+			// 已存在
+			if (existUser != null) {
+				ServletActionContext.getRequest().getSession()
+						.setAttribute("access", "false");
+				response.getWriter().println("<font color='red'>手机号已使用</font>");
+			} else {// 不存在，邮箱可以使用
+				ServletActionContext.getRequest().getSession()
+						.setAttribute("access", "true");
+				response.getWriter().println(""
+						/*"<font color='green'>手机号可用</font>"*/);
+			}
+		} else {
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("access", "false");
+			response.getWriter().println("<font color='red'>手机号不能为空</font>");
+			logger.info("手机号不能为空");
+		}
+		return NONE;
 	}
 
 	// ===========================
