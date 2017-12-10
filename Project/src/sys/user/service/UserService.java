@@ -30,10 +30,14 @@ public class UserService {
 	 * @param username
 	 * @return
 	 */
-	public User findByUsername(String email){
-		return userDao.findByUsername(email);
+	public User findByEmail(String email){
+		return userDao.findByEmail(email);
 	}
 
+	public User findByPhone(String phone){
+		return userDao.findByPhone(phone);
+	}
+	
 	public void save(User user) throws ParseException {
 		user.setState(1);//0 未激活 1 已激活
 		String code = UUIDUtil.getUUID()+UUIDUtil.getUUID();//64Bytes

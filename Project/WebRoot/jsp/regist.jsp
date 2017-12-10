@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0047)http://hongyuan.theme.yurl.vip/account/register -->
@@ -132,6 +133,84 @@
         window.postImage = '581a3b0402282e2bcc000003/s.png';
         window.captchaPath = '//captcha.ibanquan.com';
         window.ajaxToken = '9dd5934c294149a8aaba5a3540d7f709';
+        
+        function checkForm(){
+			//校验用户名
+			var username = document.getElementById("login-User").value;
+			if(username==null || username==''){
+				alert("用户名不能为空!");
+				return false;//表单不提交
+			}
+			//校验密码
+			var password = document.getElementById("login-Pwd").value;
+			if(password==null || password==''){
+				alert("密码不能为空");
+				return false;
+			}
+			//确认密码
+			var repassword = document.getElementById("login-surePwd").value;
+			if(repassword != password){
+				alert("两次密码不一致");
+				return false;
+			}
+		}
+        
+        function checkEmail(){
+			var email = document.getElementById("login-Email").value;
+			//1.创建异步交互对象
+			var xhr = createXmlHttp();
+			//2.设置监听
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						//用户名是否存在
+						document.getElementById("emailError").innerHTML = xhr.responseText;
+					}
+				}
+			}
+			//3.打开连接
+			xhr.open("GET","${pageContext.request.contextPath}/user_findByEmail.action?time="+new Date().getTime()+"&email="+email,true);
+			//4.发送
+			xhr.send(null);
+		}
+		
+		function checkPhone(){
+			var phone = document.getElementById("login-Phone").value;
+			//1.创建异步交互对象
+			var xhr = createXmlHttp();
+			//2.设置监听
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						//用户名是否存在
+						document.getElementById("phoneError").innerHTML = xhr.responseText;
+					}
+				}
+			}
+			//3.打开连接
+			xhr.open("GET","${pageContext.request.contextPath}/user_findByPhone.action?time="+new Date().getTime()+"&phone="+phone,true);
+			//4.发送
+			xhr.send(null);
+		}
+	
+		function createXmlHttp(){
+		   var xmlHttp;
+		   try{ // Firefox, Opera 8.0+, Safari
+		        xmlHttp=new XMLHttpRequest();
+		    }
+		    catch (e){
+			   try{// Internet Explorer
+			         xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+			      }
+			    catch (e){
+			      try{
+			         xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+			      }
+			      catch (e){}
+			      }
+		    }
+			return xmlHttp;
+		 }
     </script>
     <script>(function () {
         var yt = document.createElement('script');
@@ -329,9 +408,9 @@
         <div class="cont-nav settings-top_background clearfix">
             <div class="mod logo settings-text_color">
                 <strong>
-                    <a class="logo-link settings-h1_color" href="${pageContext.request.contextPath}/index.action">
+                    <a class="logo-link settings-h1_color" href="${pageContext.request.contextPath }/index.action">
 
-                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/mainlogo.png" alt="BigLibrary">
 
                     </a>
                 </strong>
@@ -340,7 +419,7 @@
                 <!-- 一级菜单 -->
                 <ul id="top-nav-link" class="nav-link">
                     <li>
-                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="index.html">首页</a>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="${pageContext.request.contextPath }/index.action">首页</a>
 
                         <!-- 二级菜单 -->
 
@@ -395,7 +474,7 @@
                 </div>
                 <!-- 点击登录 -->
                 <a id="customer-item3" class="header-link settings-top_color icon-ziyuan iconfont"
-                   href="${pageContext.request.contextPath}/user_login.action"></a>
+                   href="${pageContext.request.contextPath}/user_loginPage.action"></a>
 
                 <div id="yhsd_topCart_show" class="header-cart">
                     <span class="main-ico main-ico-cart icon-gouwuche iconfont"></span><span
@@ -425,49 +504,61 @@
             <div class="cont log-block-inner register">
                 <div class="log-block">
                     <h4 class="yhsd-font-title " style="text-align:center ">注册</h4>
-
-                    <form class="input-field" id="yhsd-register-inputField" method="post" action="${pageContext.request.contextPath }/user_register.action">
+					
+					<div><font color="red"><s:actionerror/></font></div>
+                    <form class="input-field" id="yhsd-register-inputField" method="post" action="${pageContext.request.contextPath}/user_register.action" onsubmit="return checkForm();">
                         <div class="input-area input-area-lg" data-state="">
-                        	<input id="login-User" class="form-control" name="username" type="text" placeholder="昵称"   maxlength="200">
+                            <!--<div class="title">手机/邮箱/用户名</div>-->
+                            <input id="login-User" class="form-control" name="username" type="text" placeholder="用户名"   maxlength="200">
+
+                            <div class="tips"></div>
+                        </div>
+                        <!-- 加入手机号 -->
+                        <div class="input-area input-area-lg" data-state="">
+                            <input id="login-Phone" class="form-control" name="phone" type="text" placeholder="手机"   maxlength="200" 
+                            		onblur="checkPhone();"/>
+                            <span id="phoneError"></span>
                             
                             <div class="tips"></div>
                         </div>
+                        <!-- 加入邮箱 -->
                         <div class="input-area input-area-lg" data-state="">
-                        	<!--<div class="title">手机/邮箱/用户名</div>-->
-                            <input id="login-User" class="form-control" name="email" type="text" placeholder="邮箱"   maxlength="200">
-
+                            <input id="login-Email" class="form-control" name="email" type="text" placeholder="邮箱"   maxlength="200"
+                            		onblur="checkEmail();"/>
+                            <span id="emailError"></span>
+                            
                             <div class="tips"></div>
                         </div>
-                      <!--   <div id="yhsd-register-vcode-show" class="input-group" style="display: none">
-                            <div class="input-area input-area-lg" data-state="">
-                                <div class="title">手机验证码</div>
-                                <input id="yhsd-register-vcode" class="input yhsd-font-text" type="text"
-                                       name="verify_code" maxlength="10">
 
-                                <div class="tips"></div>
-                            </div>
-                            <a id="yhsd-register-getVcode" href="javascript:void(0);"
-                               class="btn btn-input yhsd-font-link">获取验证码</a>
-                        </div> -->
+                        <!--<div id="yhsd-register-vcode-show" class="input-group" style="display: none">-->
+                            <!--<div class="input-area input-area-lg" data-state="">-->
+                                <!--<div class="title">手机验证码</div>-->
+                                <!--<input id="yhsd-register-vcode" class="input yhsd-font-text" type="text"-->
+                                       <!--name="verify_code" maxlength="10">-->
+
+                                <!--<div class="tips"></div>-->
+                            <!--</div>-->
+                            <!--<a id="yhsd-register-getVcode" href="javascript:void(0);"-->
+                               <!--class="btn btn-input yhsd-font-link">获取验证码</a>-->
+                        <!--</div>-->
 
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title">设置密码</div>-->
-
-                            <input id="login-Pwd" class="form-control" type="password" name="password"
+                            <input id="login-Pwd" class="form-control" name="password" type="password"
                                    maxlength="40" placeholder=" 设置密码">
 
                             <div class="tips"></div>
                         </div>
-                        <!-- <div class="input-area input-area-lg" data-state="">
-                            <div class="title">确认密码</div>
-                            <input id="yhsd-register-codeConfirm" class="input yhsd-font-text" type="password"
-                                   name="password_again" maxlength="40">
-                            <input id="login-surePwd" class="form-control" type="password" name="repassword"
+                        <div class="input-area input-area-lg" data-state="">
+                            <!--<div class="title">确认密码</div>-->
+                            <!--<input id="yhsd-register-codeConfirm" class="input yhsd-font-text" type="password"-->
+                                   <!--name="password_again" maxlength="40">-->
+                            <input id="login-surePwd" class="form-control" name="repassword" type="password"
                                    maxlength="40" placeholder=" 确认密码">
 
                             <div class="tips"></div>
-                        </div> -->
-                        <div class="rapid yhsd-font-desc">已有账号？请<a href="${pageContext.request.contextPath}/user_login.action"
+                        </div>
+                        <div class="rapid yhsd-font-desc">已有账号？请<a href="${pageContext.request.contextPath}/user_loginPage.action"
                                                                    class="yhsd-font-link">&nbsp;&nbsp;直接登录</a></div>
                         <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit">注册
                         </button>
@@ -562,7 +653,7 @@
                     <div class="mobile_nav_top">
                         <a class="logo-link mobile_nav_logo settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                            <img src="../files/logo" alt="BigLibrary">
+                            <img src="../img/logo" alt="BigLibrary">
 
                         </a>
                         <span class="mobile_nav_close iconfont icon-guanbi"></span>

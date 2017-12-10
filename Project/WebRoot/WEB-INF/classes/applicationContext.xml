@@ -67,6 +67,7 @@
 	
 	<!-- 首页访问的Action -->
 	<bean id="indexAction" class="sys.index.action.IndexAction" scope="prototype">
+		<property name="proAudioService" ref="proAudioService"/>
 	</bean>
 	
 	<!-- 配置验证码 -->

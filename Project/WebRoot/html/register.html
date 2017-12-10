@@ -426,25 +426,37 @@
                     <form class="input-field" id="yhsd-register-inputField" action="javascript:void(0);">
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title">手机/邮箱/用户名</div>-->
-                            <input id="login-User" class="form-control" type="text" placeholder="手机/邮箱/用户名"   maxlength="200">
+                            <input id="login-User" class="form-control" type="text" placeholder="用户名"   maxlength="200">
 
                             <div class="tips"></div>
                         </div>
-                        <div id="yhsd-register-vcode-show" class="input-group" style="display: none">
-                            <div class="input-area input-area-lg" data-state="">
-                                <div class="title">手机验证码</div>
-                                <input id="yhsd-register-vcode" class="input yhsd-font-text" type="text"
-                                       name="verify_code" maxlength="10">
+                        <!-- 加入手机号 -->
+                        <div class="input-area input-area-lg" data-state="">
+                            <input id="login-Phone" class="form-control" type="text" placeholder="手机"   maxlength="200">
 
-                                <div class="tips"></div>
-                            </div>
-                            <a id="yhsd-register-getVcode" href="javascript:void(0);"
-                               class="btn btn-input yhsd-font-link">获取验证码</a>
+                            <div class="tips"></div>
                         </div>
+                        <!-- 加入邮箱 -->
+                        <div class="input-area input-area-lg" data-state="">
+                            <input id="login-Email" class="form-control" type="text" placeholder="邮箱"   maxlength="200">
+
+                            <div class="tips"></div>
+                        </div>
+
+                        <!--<div id="yhsd-register-vcode-show" class="input-group" style="display: none">-->
+                            <!--<div class="input-area input-area-lg" data-state="">-->
+                                <!--<div class="title">手机验证码</div>-->
+                                <!--<input id="yhsd-register-vcode" class="input yhsd-font-text" type="text"-->
+                                       <!--name="verify_code" maxlength="10">-->
+
+                                <!--<div class="tips"></div>-->
+                            <!--</div>-->
+                            <!--<a id="yhsd-register-getVcode" href="javascript:void(0);"-->
+                               <!--class="btn btn-input yhsd-font-link">获取验证码</a>-->
+                        <!--</div>-->
 
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title">设置密码</div>-->
-
                             <input id="login-Pwd" class="form-control" type="password"
                                    maxlength="40" placeholder=" 设置密码">
 

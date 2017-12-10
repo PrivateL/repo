@@ -8,6 +8,7 @@ public class User {
 	private String username;// 用户名
 	private String password;// 密码
 	private String email;// 邮箱
+	private String phone;//电话
 	private Integer state;//激活状态
 	private String code;//激活码
 	private Date create_date;//创建日期
@@ -28,6 +29,12 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;
