@@ -17,12 +17,8 @@
         </property>
         
          <many-to-one name="category" class="sys.category.Category" column="ctg_sec_id" lazy="false"/>
+         <many-to-one name="authorColumn" class="sys.author.AuthorColumn" column="author_id" lazy="false"/>
         
-        <property name="authorId" type="integer">
-            <column name="author_id" not-null="true">
-                <comment>作者</comment>
-            </column>
-        </property>
         <property name="audioDesc" type="string">
             <column name="audio_desc" not-null="true">
                 <comment>音频描述</comment>

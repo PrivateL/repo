@@ -22,7 +22,7 @@ public class AuthorColumnService {
 		
 	}
 
-	public AuthorColumn adminFindById(Integer acId) {
+	public AuthorColumn findById(Integer acId) {
 		return authorColumnDao.adminFindById(acId);
 	}
 

@@ -31,7 +31,7 @@ public class AuthorColumnAction extends ActionSupport implements ModelDriven<Aut
 		this.ctgSecId = ctgSecId;
 	}
 	public void setCtgSecId(String ctgSecId){
-		System.out.println(ctgSecId);
+		//System.out.println(ctgSecId);
 		this.ctgSecId = Integer.valueOf(ctgSecId);
 	}
 
@@ -72,7 +72,7 @@ public class AuthorColumnAction extends ActionSupport implements ModelDriven<Aut
 	
 	// 编辑作者专栏
 	public String edit(){
-		authorColumn = authorColumnService.adminFindById(authorColumn.getAcId());
+		authorColumn = authorColumnService.findById(authorColumn.getAcId());
 		List<Category> cList = categoryService.findAll();
 		ActionContext.getContext().getValueStack().set("cList", cList);
 		return "editSuccess";

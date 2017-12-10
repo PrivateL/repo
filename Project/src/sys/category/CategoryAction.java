@@ -52,14 +52,5 @@ public class CategoryAction extends ActionSupport implements ModelDriven<Categor
 		categoryService.delete(category);
 		return "deleteSuccess";
 	}
-	
-	// 音频添加时的分类
-	public String addProAudio(){
-		List<Category> cList = categoryService.findAll();
-		// 压入值栈:
-		ActionContext.getContext().getValueStack().set("cList", cList);
-		return "addProAudio";
-	}
-	
 
 }

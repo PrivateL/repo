@@ -12,13 +12,13 @@
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3" colSpan="4"
 						height="26">
-						<STRONG>添加一级分类</STRONG>
+						<STRONG>添加分类</STRONG>
 					</td>
 				</tr>
 
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						一级分类名称：
+						分类名称：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
 						<input type="text" name="ctgName" value="" id="userAction_save_do_logonName" class="bg"/>

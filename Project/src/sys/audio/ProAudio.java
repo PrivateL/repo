@@ -2,6 +2,7 @@ package sys.audio;
 
 import java.util.Date;
 
+import sys.author.AuthorColumn;
 import sys.category.Category;
 
 /**
@@ -15,7 +16,7 @@ public class ProAudio{
 	private Integer audioId;
 	private String audioName;// 标题或对应的书名
 	private Category category;// 所属分类的id
-	private Integer authorId;// 说书人的id
+	private AuthorColumn authorColumn;// 说书人的id
 	private String audioDesc;// 音频描述
 	private String audioLong;// 时长
 	private Integer audioWeight;// 权值，衡量是否最受欢迎或计算点击量等
@@ -50,12 +51,13 @@ public class ProAudio{
 		this.category = category;
 	}
 
-	public Integer getAuthorId() {
-		return authorId;
+	
+	public AuthorColumn getAuthorColumn() {
+		return authorColumn;
 	}
 
-	public void setAuthorId(Integer authorId) {
-		this.authorId = authorId;
+	public void setAuthorColumn(AuthorColumn authorColumn) {
+		this.authorColumn = authorColumn;
 	}
 
 	public String getAudioDesc() {

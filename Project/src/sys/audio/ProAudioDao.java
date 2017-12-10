@@ -23,4 +23,20 @@ public class ProAudioDao extends HibernateDaoSupport{
 		List<ProAudio> list = this.getHibernateTemplate().executeFind(new sys.utils.PageHibernateCallback<ProAudio>(hql, null, begin, limit));
 		return list;
 	}
+
+	public void save(ProAudio proAudio) {
+		this.getHibernateTemplate().save(proAudio);
+	}
+
+	public ProAudio findById(Integer audioId) {
+		return this.getHibernateTemplate().get(ProAudio.class, audioId);
+	}
+
+	public void update(ProAudio proAudio) {
+		this.getHibernateTemplate().update(proAudio);
+	}
+
+	public void delete(ProAudio proAudio) {
+		this.getHibernateTemplate().delete(proAudio);
+	}
 }

@@ -9,6 +9,7 @@
 	</HEAD>
 	<body>
 		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/proAudio_save.action" method="post" enctype="multipart/form-data">
+			
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
@@ -24,27 +25,11 @@
 						音频名称：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="audioName" value="" id="userAction_save_do_logonName" class="bg"/>
+						<input type="text" name="audioName" id="userAction_save_do_logonName" class="bg"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						说书人：
-					</td>
-					<td class="ta_01" bgColor="#ffffff">
-						
-						<select name="ctgSecId" >
-							<s:iterator var="cs" value="cList">
-						   	 <option value="<s:property value="#cs.ctgSecId"/>">
-						   	 	<s:property value="#cs.ctgName"/>
-						   	 </option>
-						    </s:iterator>
-						</select>
-
-					</td>
-				</tr>
-				<tr>
-					<td align="center" bgColor="#f5fafe" class="ta_01">
 						音频分类：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
@@ -59,6 +44,22 @@
 
 					</td>
 				</tr>
+				<tr>
+					<td align="center" bgColor="#f5fafe" class="ta_01">
+						说书人：
+					</td>
+					<td class="ta_01" bgColor="#ffffff">
+						
+						<select name="acId" >
+							<s:iterator var="as" value="aList">
+						   	 <option value="<s:property value="#as.acId"/>">
+						   	 	<s:property value="#as.authorName"/>
+						   	 </option>
+						    </s:iterator>
+						</select>
+
+					</td>
+				</tr>
 				
 				
 				<tr>
@@ -66,7 +67,7 @@
 						音频图片：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colSpan="3">
-						<input type="file" name="audioImage" size="30" value="" id="userAction_save_do_upload"/>
+						<input type="file" name="audioImage" size="30" id="userAction_save_do_upload"/>
 					</td>
 				</tr>
 				
@@ -75,7 +76,7 @@
 						音频地址：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colSpan="3">
-						<input type="file" name="audioUrl" size="30" value="" id="userAction_save_do_upload"/>
+						<input type="file" name="audioUrl" size="30" id="userAction_save_do_upload"/>
 					</td>
 				</tr>
 				

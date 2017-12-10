@@ -44,4 +44,20 @@ public class ProAudioService {
 			pageBean.setList(list);
 			return pageBean;
 		}
+
+		public void save(ProAudio proAudio) {
+			proAudiorDao.save(proAudio);
+		}
+
+		public ProAudio findById(Integer audioId) {
+			return proAudiorDao.findById(audioId);
+		}
+
+		public void update(ProAudio proAudio) {
+			proAudiorDao.update(proAudio);
+		}
+
+		public void delete(ProAudio proAudio) {
+			proAudiorDao.delete(proAudio);
+		}
 }

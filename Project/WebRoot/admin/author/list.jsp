@@ -93,7 +93,7 @@
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 100px" align="center"
 												width="15%">
-												<img src="<s:property value='#c.authorPhoto'/>"/>
+												<img width="45" height="50" src="${pageContext.request.contextPath }/<s:property value="#c.authorPhoto"/>"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="7%">
@@ -105,7 +105,7 @@
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="15%">
-												<img src="<s:property value="#c.columnImage"/>">
+												<img width="45" height="50" src="${pageContext.request.contextPath }/<s:property value="#c.columnImage"/>"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="5%">

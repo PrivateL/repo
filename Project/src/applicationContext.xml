@@ -86,6 +86,8 @@
 	<!-- 音频Action -->
 	<bean id="proAudioAction" class="sys.audio.ProAudioAction" scope="prototype">
 		<property name="proAudioService" ref="proAudioService"></property>
+		<property name="categoryService" ref="categoryService"></property>
+		<property name="authorColumnService" ref="authorColumnService"></property>
 	</bean>
 	
 	<!-- 作者专栏Action -->
