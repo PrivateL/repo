@@ -22,5 +22,17 @@ public class AuthorColumnService {
 		
 	}
 
+	public AuthorColumn adminFindById(Integer acId) {
+		return authorColumnDao.adminFindById(acId);
+	}
+
+	public void update(AuthorColumn authorColumn) {
+		authorColumnDao.update(authorColumn);
+	}
+
+	public void delete(AuthorColumn authorColumn) {
+		authorColumnDao.delete(authorColumn);
+	}
+
 	
 }

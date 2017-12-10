@@ -16,4 +16,16 @@ public class AuthorColumnDao extends HibernateDaoSupport{
 		 this.getHibernateTemplate().save(authorColumn);
 	}
 
+	public AuthorColumn adminFindById(Integer acId) {
+		return this.getHibernateTemplate().get(AuthorColumn.class, acId);
+	}
+
+	public void update(AuthorColumn authorColumn) {
+		this.getHibernateTemplate().update(authorColumn);
+	}
+
+	public void delete(AuthorColumn authorColumn) {
+		this.getHibernateTemplate().delete(authorColumn);
+	}
+
 }

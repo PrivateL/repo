@@ -32,7 +32,7 @@
 						作者图片：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colSpan="3">
-						<input type="file" name="authorPhoto" size="30" value="" id="userAction_save_do_upload"/>
+						<input type="file" name="authorPhoto" size="30" id="userAction_save_do_upload"/>
 					</td>
 				</tr>
 				<tr>

@@ -8,7 +8,7 @@
 		<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<script type="text/javascript">
 			function addUser(){
-				window.location = "${pageContext.request.contextPath}/category_addAuthor.action";				
+				window.location = "${pageContext.request.contextPath}/authorColumn_addAuthor.action";				
 			}
 		</script>
 	</HEAD>
@@ -91,9 +91,9 @@
 												width="12%">
 												<s:property value="#c.authorDesc"/>
 											</td>
-											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+											<td style="CURSOR: hand; HEIGHT: 100px" align="center"
 												width="15%">
-												<img src="<s:property value="#c.authorPhoto"/>">
+												<img src="<s:property value='#c.authorPhoto'/>"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="7%">
@@ -122,13 +122,13 @@
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/category_edit.action?ctgSecId=<s:property value="#c.ctgSecId"/>">
+												<a href="${pageContext.request.contextPath}/authorColumn_edit.action?acId=<s:property value="#c.acId"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/category_delete.action?ctgSecId=<s:property value="#c.ctgSecId"/>">
+												<a href="${pageContext.request.contextPath}/authorColumn_delete.action?acId=<s:property value="#c.acId"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>
