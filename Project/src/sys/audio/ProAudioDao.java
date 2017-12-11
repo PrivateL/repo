@@ -39,4 +39,5 @@ public class ProAudioDao extends HibernateDaoSupport{
 	public void delete(ProAudio proAudio) {
 		this.getHibernateTemplate().delete(proAudio);
 	}
+	
 }

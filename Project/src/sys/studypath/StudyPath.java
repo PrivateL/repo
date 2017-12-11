@@ -25,21 +25,6 @@ public class StudyPath{
 	public StudyPath() {
 	}
 
-	/** full constructor */
-	public StudyPath(String pathName, Integer ctgSecId, Integer industryId,
-			String pathDesc, Integer pathWeight, String pathImage,
-			Date pathCreateTime) {
-		this.pathName = pathName;
-		this.ctgSecId = ctgSecId;
-		this.industryId = industryId;
-		this.pathDesc = pathDesc;
-		this.pathWeight = pathWeight;
-		this.pathImage = pathImage;
-		this.pathCreateTime = pathCreateTime;
-	}
-
-	// Property accessors
-
 	public Integer getPathId() {
 		return this.pathId;
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0047)http://hongyuan.theme.yurl.vip/account/register -->
@@ -36,7 +37,6 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
     <!-- 社交分享信息 -->
-
 
     <meta property="og:title" content="content="width=device-width, initial-scale=1.0">
     <meta property="og:description" content="content="width=device-width, initial-scale=1.0">
@@ -339,9 +339,9 @@
         <div class="cont-nav settings-top_background clearfix">
             <div class="mod logo settings-text_color">
                 <strong>
-                    <a class="logo-link settings-h1_color" href="${pageContext.request.contextPath}/index.action">
+                    <a class="logo-link settings-h1_color" href="${pageContext.request.contextPath }/index.action">
 
-                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/mainlogo.png" alt="BigLibrary">
 
                     </a>
                 </strong>
@@ -350,36 +350,46 @@
                 <!-- 一级菜单 -->
                 <ul id="top-nav-link" class="nav-link">
                     <li>
-                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="${pageContext.request.contextPath}/index.action">首页</a>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905781" href="${pageContext.request.contextPath }/index.action">首页</a>
 
                         <!-- 二级菜单 -->
 
-                    </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905782" href="http://hongyuan.theme.yurl.vip/products">听书</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905782" href="听书.html">听书</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905783" href="http://hongyuan.theme.yurl.vip/pages/g000002">商城</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905783" href="电子书与商城.html">商城</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li class="">
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905784" href="http://hongyuan.theme.yurl.vip/blogs">电子书</a>
+                    </li>
+                    <li class="">
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905784" href="电子书与商城.html">电子书</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905785" href="http://hongyuan.theme.yurl.vip/posts">订阅专刊</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905785" href="专栏订阅.html">订阅专刊</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li><li>
-                    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_905786" href="http://hongyuan.theme.yurl.vip/posts">个人中心</a>
+                    </li>
+                    <li>
+                        <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
+                           id="navlink_905786" href="#">个人中心</a>
 
-                    <!-- 二级菜单 -->
+                        <!-- 二级菜单 -->
 
-                </li>
+                    </li>
                 </ul>
                 <a id="nav_mobile" class="nav-link-mobile icon-comiiscaidan iconfont settings-top_color"
                    href="javascript:void(0);">
@@ -393,9 +403,9 @@
                 <div id="yhsd-header-search-ipt" class="header-search pc-show">
                     <input class="search-ipt settings-ipt_border" type="text" placeholder="搜索全站">
                 </div>
-                <!-- 点击登录-->
+                <!-- 点击登录 -->
                 <a id="customer-item3" class="header-link settings-top_color icon-ziyuan iconfont"
-                   href="${pageContext.request.contextPath}/user_login.action"></a>
+                   href="${pageContext.request.contextPath}/user_loginPage.action"></a>
 
                 <div id="yhsd_topCart_show" class="header-cart">
                     <span class="main-ico main-ico-cart icon-gouwuche iconfont"></span><span
@@ -426,18 +436,19 @@
                 <div class="log-block">
                     <h4 class="yhsd-font-title" style="text-align:center ">登录</h4>
 
-                    <form   id="myLogin" >
+					<div><strong><s:actionerror/></strong></div>
+                    <form   id="myLogin" method="put" action="${pageContext.request.contextPath}/user_login.action">
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title" >手机/邮箱/用户名</div>-->
 
-                                <input id="login-User" class="form-control" type="text" placeholder="手机/邮箱/用户名"   maxlength="200">
+                                <input id="login-User" class="form-control" type="text" name="email" placeholder="手机/邮箱"   maxlength="200">
 
                             <div class="tips"></div>
                         </div>
 
                         <div class="input-area input-area-lg" data-state="">
                             <!--<div class="title">输入密码</div>-->
-                            <input id="login-Pwd" class="form-control" type="password"
+                            <input id="login-Pwd" class="form-control" type="password" name="password"
                                    maxlength="40" placeholder="输入密码">
 
                             <div class="tips"></div>
@@ -445,16 +456,16 @@
 
                         <div class="input-area input-area-lg " data-state="">
                             <!--<div class="title">输入验证码</div>-->
-                            <input  id="login-Code"  class="form-control" type="text" placeholder="输入验证码"
+                            <input  id="login-Code"  class="form-control" type="text" name="checkCode" placeholder="输入验证码"
                                    maxlength="200"></br>
                             <label id="codeE"> </label>&nbsp;
                             <a id="aChangeCode" href="javascript:void(0)">&nbsp;&nbsp;换一张</a>
 
                         </div>
 
-                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="register.html"
+                        <div class="rapid yhsd-font-desc"> 还没有账号？<a href="${pageContext.request.contextPath}/user_registerPage.action"
                                                                    class="yhsd-font-link">&nbsp;&nbsp;点击注册</a></div>
-                        <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit">登录
+                        <button id="yhsd-register-submit" class="btn btn-primary btn-lg btn-block" type="submit" >登录
                          </button>
                     </form>
                 </div>
@@ -469,7 +480,7 @@
                 <div class="footer-logo">
                     <a class="logo-link settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                        <img src="../files/logo" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
 
                     </a>
                 </div>
@@ -546,7 +557,7 @@
                     <div class="mobile_nav_top">
                         <a class="logo-link mobile_nav_logo settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                            <img src="../files/logo" alt="BigLibrary">
+                            <img src="../img/logo" alt="BigLibrary">
 
                         </a>
                         <span class="mobile_nav_close iconfont icon-guanbi"></span>

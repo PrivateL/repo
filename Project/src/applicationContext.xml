@@ -50,6 +50,7 @@
 				<value>sys/category/Category.hbm.xml</value>
 				<value>sys/audio/ProAudio.hbm.xml</value>
 				<value>sys/author/AuthorColumn.hbm.xml</value>
+				<value>sys/studypath/StudyPath.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -67,6 +68,7 @@
 	
 	<!-- 首页访问的Action -->
 	<bean id="indexAction" class="sys.index.action.IndexAction" scope="prototype">
+		<property name="proAudioService" ref="proAudioService"/>
 	</bean>
 	
 	<!-- 配置验证码 -->
@@ -78,7 +80,12 @@
 		<property name="userService" ref="userService"/>
 	</bean>
 	
-	<!-- 一级分类Action -->
+	<!-- 学习路径Action -->
+	<bean id="studyPathAction" class="sys.studypath.StudyPathAction" scope="prototype">
+		<property name="studyPathService" ref="studyPathService"></property>
+	</bean>
+	
+	<!-- 分类Action -->
 	<bean id="categoryAction" class="sys.category.CategoryAction" scope="prototype">
 		<property name="categoryService" ref="categoryService"></property>
 	</bean>
@@ -109,6 +116,11 @@
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
+	<!-- 学习路径Service -->
+	<bean id="studyPathService" class="sys.studypath.StudyPathService">
+		<property name="studyPathDao" ref="studyPathDao"></property>
+	</bean>
+	
 	<!-- 分类Service -->
 	<bean id="categoryService" class="sys.category.CategoryService">
 		<property name="categoryDao" ref="categoryDao"></property>
@@ -134,6 +146,11 @@
 	
 	<!-- ====================dao的配置============================== -->
 	<bean id="userDao" class="sys.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 学习路径Dao -->
+	<bean id="studyPathDao" class="sys.studypath.StudyPathDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

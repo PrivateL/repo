@@ -1,8 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0031)http://hongyuan.theme.yurl.vip/ -->
@@ -15,28 +13,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="renderer" content="webkit">
     <title>BigLibrary</title>
 
-    <meta name="keywords" content="content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="content=" width=device-width, initial-scale=1.0">
+    <meta name="description" content="content=" width=device-width, initial-scale=1.0">
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
     <link rel="shortcut icon" href="http://asset.ibanquan.com/image/57acb51702282e3f00000003/s.ico?v=0"
           type="image/x-icon">
-    <link href="../css/base-160225.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/yhsd-iconfont-151010.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/yhsd-desktop-170719.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/youpage.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/iconfont.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/main.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../css/user.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../js/tracker-0.0.2.min.js.下载"></script>
-    <script src="../js/jquery-1.11.3.min.js.下载" type="text/javascript"></script>
-    <script src="../js/jssdk-0.0.18.min.js.下载" type="text/javascript"></script>
-    <script src="../js/lazyload.min.js.下载" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/css/base-160225.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/yhsd-iconfont-151010.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/yhsd-desktop-170719.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/youpage.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/iconfont.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/main.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/user.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/js/tracker-0.0.2.min.js.下载"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js.下载" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jssdk-0.0.18.min.js.下载" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/lazyload.min.js.下载" type="text/javascript"></script>
+
+
+    <!-- 引入Bootstrap,js、css文件 -->
+    <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
     <!-- 社交分享信息 -->
-    <meta property="og:title"  content="content="width=device-width, initial-scale=1.0">
-    <meta property="og:description"  content="content="width=device-width, initial-scale=1.0">
-    <meta property="og:image"  content="//asset.ibanquan.com/image/57acb53a02282e3f00000007/s.png?v=0">
+    <meta property="og:title" content="content=" width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="content=" width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="//asset.ibanquan.com/image/57acb53a02282e3f00000007/s.png?v=0">
 
     <!-- End 社交分享信息 -->
     <style>
@@ -116,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
 
     </style>
-    <script src="../js/jquery.qrcode.min.js.下载"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.qrcode.min.js.下载"></script>
 
     <script>
         window.productImage = '53f649ffe2931e0b91000007/noimage.png';
@@ -315,7 +318,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
     }</style>
     <!-- 图片轮播 -->
-    <link rel="stylesheet" href="css/pageSwitch.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pageSwitch.min.css">
     <style type="text/css">
 
 
@@ -325,12 +328,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             overflow: hidden;
             float: left;
         }
-        .sections,.section {
-            height:100%;
+
+        .sections, .section {
+            height: 100%;
         }
-        #picture,.sections {
+
+        #picture, .sections {
             position: relative;
         }
+
         .section {
             background-color: #000;
             background-size: cover;
@@ -338,23 +344,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             text-align: center;
             color: white;
         }
+
         #section0 {
-            background-image: url('../img/index_slide_1.png');
+            background-image: url('${pageContext.request.contextPath}/img/index_slide_1.png');
         }
+
         #section1 {
-            background-image: url('../img/index_slide_2.png');
+            background-image: url('${pageContext.request.contextPath}/img/index_slide_2.png');
         }
+
         #section2 {
-            background-image: url('../img/index_slide_3.png');
+            background-image: url('${pageContext.request.contextPath}/img/index_slide_3.png');
         }
+
         #section3 {
-            background-image: url('../img/index_slide_4.png');
+            background-image: url('${pageContext.request.contextPath}/img/index_slide_4.png');
         }
     </style>
 </head>
 <body class=" ">
 <!-- 社交分享图 (300x300) -->
-<img class="you_share_img" src="../img/s.png" alt="BigLibrary">
+<img class="you_share_img" src="${pageContext.request.contextPath}/img/s.png" alt="BigLibrary">
 <!-- End 社交分享图 -->
 <div class="page settings-body_background yhsd_free_scope">
     <div class="wrapper wrapper-header settings-top_background">
@@ -362,9 +372,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="mod logo settings-text_color">
                 <strong>
                     <a class="logo-link settings-h1_color"
-                       href="http://localhost:63342/college_in_life/template/BigLibrary/html/index.html">
+                       href="${pageContext.request.contextPath}/index.action">
 
-                        <img src="img/logo.png" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/mainlogo.png" alt="BigLibrary">
                     </a>
                 </strong>
             </div>
@@ -374,42 +384,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li>
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
                            id="navlink_905781"
-                           href="http://localhost:63342/college_in_life/template/BigLibrary/html/index.html">首页</a>
+                           href="${pageContext.request.contextPath }/index.action">首页</a>
 
                         <!-- 二级菜单 -->
 
                     </li>
                     <li>
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
-                           id="navlink_905782" href="http://hongyuan.theme.yurl.vip/products">听书</a>
+                           id="navlink_905782" href="听书.html">听书</a>
 
                         <!-- 二级菜单 -->
 
                     </li>
                     <li>
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
-                           id="navlink_905783" href="http://hongyuan.theme.yurl.vip/pages/g000002">商城</a>
+                           id="navlink_905783" href="电子书与商城.html">商城</a>
 
                         <!-- 二级菜单 -->
 
                     </li>
                     <li class="">
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
-                           id="navlink_905784" href="http://hongyuan.theme.yurl.vip/blogs">电子书</a>
+                           id="navlink_905784" href="电子书与商城.html">电子书</a>
 
                         <!-- 二级菜单 -->
 
                     </li>
                     <li>
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
-                           id="navlink_905785" href="http://hongyuan.theme.yurl.vip/posts">订阅专刊</a>
+                           id="navlink_905785" href="专栏订阅.html">订阅专刊</a>
 
                         <!-- 二级菜单 -->
 
                     </li>
                     <li>
                         <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border"
-                           id="navlink_905786" href="http://hongyuan.theme.yurl.vip/posts">个人中心</a>
+                           id="navlink_905786" href="#">个人中心</a>
 
                         <!-- 二级菜单 -->
 
@@ -429,7 +439,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
                 <!-- 点击登录 -->
                 <a id="customer-item3" class="header-link settings-top_color icon-ziyuan iconfont"
-                   href="login.html"></a>
+                   href="${pageContext.request.contextPath}/user_loginPage.action"></a>
 
                 <div id="yhsd_topCart_show" class="header-cart">
                     <span class="main-ico main-ico-cart icon-gouwuche iconfont"></span><span
@@ -456,7 +466,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
     <div class="wrapper wrapper-slide">
-        <div class="cont clearfix" >
+        <div class="cont clearfix">
             <!-- 自己加的图片轮播-->
             <div id="picture">
                 <div class="sections">
@@ -470,14 +480,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- 右部分的两张图片-->
             <div class="mod slide_pics">
                 <a href="javascript:void(0);">
-                    <img src="../files/wrapper_slide_1" alt=""></a>
+                    <img src="${pageContext.request.contextPath }/img/wrapper_slide_1.png" alt=""/></a>
                 <a href="javascript:void(0);">
-                    <img src="../files/wrapper_slide_2" alt=""></a>
+                    <img src="${pageContext.request.contextPath }/img/wrapper_slide_2.png" alt=""/></a>
             </div>
         </div>
     </div>
 
-
+	<!-- 热门音频 -->
     <div class="wrapper wrapper-proList index-proList">
         <div class="cont">
             <div class="mod proList">
@@ -487,76 +497,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <ul class="proList-ul clearfix proList-count-4 lazyload_scope">
 
-
-                        <li>
+                        <!-- 热门音频 -->
+                    	<s:iterator var="hotAudio" value="hotAudioList">
+						<li>
                             <a class="proList-img settings-proPic_border txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000003" target="_blank" title="爱咖啡的你">
-                                <img class=" " src="../img/s_w330h330.png"
+                               href="" target="_blank">
+                                <img width="200px" height="300px" class=" " src="${pageContext.request.contextPath}/<s:property value="#hotAudio.audioImage"/>"
                                      data-src="//asset.ibanquan.com/image/590af70e3f8f90450300011f/s_w330h330.png?v=1493890830"
-                                     alt="爱咖啡的你" data-yhsdimgload="true">
+                                     alt="<s:property value="#hotAudio.audioName"/>" data-yhsdimgload="true">
                             </a>
                             <a class="proList-name settings-proTitle_color txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000003" title="爱读书的你" target="_blank">爱读书的你</a>
+                               href="" target="_blank"><s:property value="#hotAudio.audioName"/></a>
 
                             <div class="proList-desc">
-
-                                <span class="proList-price settings-price_color">￥265.00</span>
-
+                                <span class="proList-price settings-price_color"><s:property value="#hotAudio.audioDesc"/></span>
                             </div>
                         </li>
-
-                        <li>
-                            <a class="proList-img settings-proPic_border txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000001" target="_blank" title="粉色少女之约">
-                                <img class=" " src="../img/s_w330h330(1).png"
-                                     data-src="//asset.ibanquan.com/image/590af5749bedc42522000117/s_w330h330.png?v=1493890420"
-                                     alt="粉色少女之约" data-yhsdimgload="true">
-                            </a>
-                            <a class="proList-name settings-proTitle_color txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000001" title="粉色少女之约" target="_blank">粉色少女之约</a>
-
-                            <div class="proList-desc">
-
-                                <span class="proList-price settings-price_color">￥325.00</span>
-
-                            </div>
-                        </li>
-
-
-                        <li>
-                            <a class="proList-img settings-proPic_border txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000004" target="_blank" title="金色的回忆">
-                                <img class=" " src="../img/s_w330h330(2).png"
-                                     data-src="//asset.ibanquan.com/image/590af7fab1b9572553000154/s_w330h330.png?v=1493891066"
-                                     alt="金色的回忆" data-yhsdimgload="true">
-                            </a>
-                            <a class="proList-name settings-proTitle_color txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000004" title="大学的回忆" target="_blank">大学的回忆</a>
-
-                            <div class="proList-desc">
-
-                                <span class="proList-price settings-price_color">￥359.00</span>
-
-                            </div>
-                        </li>
-
-
-                        <li>
-                            <a class="proList-img settings-proPic_border txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000002" target="_blank" title="你是人间四月天">
-                                <img class=" " src="../img/s_w330h330(3).png"
-                                     data-src="//asset.ibanquan.com/image/590af6ca3f8f904503000118/s_w330h330.png?v=1493890763"
-                                     alt="你是人间四月天" data-yhsdimgload="true">
-                            </a>
-                            <a class="proList-name settings-proTitle_color txt-overflow"
-                               href="http://hongyuan.theme.yurl.vip/products/p000002" title="你是人间四月天" target="_blank">你是人间四月天</a>
-
-                            <div class="proList-desc">
-
-                                <span class="proList-price settings-price_color">￥399.00</span>
-
-                            </div>
-                        </li>
+                        </s:iterator>
 
                     </ul>
                     <a class="mobi-show mobi-products-more" href="http://hongyuan.theme.yurl.vip/products">more</a>
@@ -566,17 +523,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
 
+    <!--热门图书-->
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
 
+            <div class="col-xs-12 col-sm-12">
+                <h4 class="prolist_title">电子书の免费</h4>
+                <div class="row">
+                    <div class="col-xs-6 col-lg-4">
+                        <h2>Heading</h2>
+
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                            malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                    <!--/.col-xs-6.col-lg-4-->
+                    <div class="col-xs-6 col-lg-4">
+                        <h2>Heading</h2>
+
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                            malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                    <!--/.col-xs-6.col-lg-4-->
+                    <div class="col-xs-6 col-lg-4">
+                        <h2>Heading</h2>
+
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                            malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+
+                    <!--/.col-xs-6.col-lg-4-->
+                </div>
+                <!--/row-->
+            </div>
+            <!--/.col-xs-12.col-sm-9-->
+        </div>
+    </div>
+    <!--/row-->
+
+    <br>  <br>
+
+	<!-- 热门专栏 -->
     <div class="wrapper wrapper_third">
         <div class="cont">
             <div class="mod">
                 <ul class="clearfix">
+                    <h4 class="prolist_title">订阅专栏の成长感想</h4>
                     <li><a href="javascript:void(0);">
                         <div class="wrapper_third_img">
-                            <img src="../files/wrapper_third_1" alt="">
+                            <img src="${pageContext.request.contextPath }/img/wrapper_third_1.png" alt="">
                         </div>
                         <div>
-                            <p class="third_title">听一本有名的书</p>
+                            <p class="third_title">听一个有趣的人生观</p>
 
                             <p class="third_subtitle">站在巨人的肩膀上入门</p>
                         </div>
@@ -588,7 +594,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <p class="third_subtitle third_subtitle_m">夏日小清新的视听洗礼</p>
                         </div>
                         <div class="wrapper_third_img">
-                            <img src="../files/wrapper_third_2" alt="">
+                            <img src="${pageContext.request.contextPath }/img/wrapper_third_2.png" alt="">
                         </div>
                         <div class="mobi-show">
                             <p class="third_title third_title_m">别以为买好书多难</p>
@@ -598,12 +604,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a></li>
                     <li><a href="javascript:void(0);">
                         <div class="wrapper_third_img">
-                            <img src="../files/wrapper_third_3" alt="">
+                            <img src="${pageContext.request.contextPath }/img/wrapper_third_3.png" alt="">
                         </div>
                         <div>
-                            <p class="third_title">婚礼鲜花布置</p>
+                            <p class="third_title">人生怎么会没有点波澜</p>
 
-                            <p class="third_subtitle">每一个女孩都有的梦想</p>
+                            <p class="third_subtitle">风平浪静与波澜四起的生活</p>
                         </div>
                     </a></li>
                 </ul>
@@ -611,19 +617,108 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
 
-    <div class="wrapper wrapper_fourth">
+    <!--暂加的电子书与商城模块-->
+    <div class="wrapper wrapper-proList index-proList">
         <div class="cont">
-            <div class="mod clearfix">
-                <a href="javascript:void(0);">
-                    <img src="../files/wrapper_fourth_1" alt="" class="wrapper_fourth_img_1"></a>
-                <a href="javascript:void(0);">
-                    <img src="../files/wrapper_fourth_2" alt="" class="wrapper_fourth_img_2"></a>
+            <div class="mod proList">
+                <h4 class="prolist_title">商城の遇见惊喜</h4>
+
+                <div class="proList-inner">
+
+                    <ul class="proList-ul clearfix proList-count-4 lazyload_scope">
+
+                        <li>
+                            <a class="proList-img settings-proPic_border txt-overflow"
+                               href="爱读书的你.html" target="_blank" title="爱咖啡的你">
+                                <img class=" " src="${pageContext.request.contextPath}/img/s_w330h330.png"
+                                     data-src="//asset.ibanquan.com/image/590af70e3f8f90450300011f/s_w330h330.png?v=1493890830"
+                                     alt="爱咖啡的你" data-yhsdimgload="true">
+                            </a>
+                            <a class="proList-name settings-proTitle_color txt-overflow"
+                               href="爱读书的你.html" title="爱咖啡的你" target="_blank">《爱读书的你》</a>
+
+                            <div class="proList-desc">
+
+                                <span class="proList-price settings-price_color">￥265.00</span>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="proList-img settings-proPic_border txt-overflow"
+                               href="爱读书的你.html" target="_blank" title="粉色少女之约">
+                                <img class=" " src="${pageContext.request.contextPath}/img/s_w330h330(1).png"
+                                     data-src="//asset.ibanquan.com/image/590af5749bedc42522000117/s_w330h330.png?v=1493890420"
+                                     alt="粉色少女之约" data-yhsdimgload="true">
+                            </a>
+                            <a class="proList-name settings-proTitle_color txt-overflow"
+                               href="爱读书的你.html" title="粉色少女之约" target="_blank">《十年之约》</a>
+
+                            <div class="proList-desc">
+
+                                <span class="proList-price settings-price_color">￥325.00</span>
+
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <a class="proList-img settings-proPic_border txt-overflow"
+                               href="爱读书的你.html" target="_blank" title="金色的回忆">
+                                <img class=" " src="${pageContext.request.contextPath}/img/s_w330h330(2).png"
+                                     data-src="//asset.ibanquan.com/image/590af7fab1b9572553000154/s_w330h330.png?v=1493891066"
+                                     alt="金色的回忆" data-yhsdimgload="true">
+                            </a>
+                            <a class="proList-name settings-proTitle_color txt-overflow"
+                               href="爱读书的你.html" title="大学的回忆" target="_blank">《大学的回忆》</a>
+
+                            <div class="proList-desc">
+
+                                <span class="proList-price settings-price_color">￥359.00</span>
+
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <a class="proList-img settings-proPic_border txt-overflow"
+                               href="爱读书的你.html" target="_blank" title="你是人间四月天">
+                                <img class=" " src="${pageContext.request.contextPath}/img/s_w330h330(3).png"
+                                     data-src="//asset.ibanquan.com/image/590af6ca3f8f904503000118/s_w330h330.png?v=1493890763"
+                                     alt="你是人间四月天" data-yhsdimgload="true">
+                            </a>
+                            <a class="proList-name settings-proTitle_color txt-overflow"
+                               href="爱读书的你.html" title="你是人间四月天" target="_blank">《天才在左疯子在右》</a>
+
+                            <div class="proList-desc">
+
+                                <span class="proList-price settings-price_color">￥399.00</span>
+
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="mobi-show mobi-products-more" href="http://hongyuan.theme.yurl.vip/products">more</a>
+
+                </div>
             </div>
         </div>
     </div>
 
 
-    <script src="../js/jquery.slides.min.js.下载" type="text/javascript"></script>
+
+    <div class="wrapper wrapper_fourth">
+        <div class="cont">
+            <div class="mod clearfix">
+                <a href="#">
+                    <img src="${pageContext.request.contextPath }/img/wrapper_fourth_1.png" alt="" class="wrapper_fourth_img_1"></a>
+                <a href="#">
+                    <img src="${pageContext.request.contextPath }/img/wrapper_fourth_2.png" alt="" class="wrapper_fourth_img_2.png"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="${pageContext.request.contextPath}/js/jquery.slides.min.js.下载" type="text/javascript"></script>
     <script>
         $(function () {
 
@@ -668,7 +763,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="footer-logo">
                     <a class="logo-link settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                        <img src="../logo" alt="BigLibrary">
+                        <img src="${pageContext.request.contextPath}/img/logo.png" alt="BigLibrary">
 
                     </a>
                 </div>
@@ -706,7 +801,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
 
                 <div class="footer-copyright settings-footer_color">
-                    粤ICP备12043194号 © 2016 youhaosuda.com
+                    By 吉首大学创新创业工作室 © 2017 BigLibrary.com
                 </div>
                 <div class="footer-payment settings-footer_payment_icon_color mobi-show">
 
@@ -745,7 +840,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="mobile_nav_top">
                         <a class="logo-link mobile_nav_logo settings-h1_color" href="http://hongyuan.theme.yurl.vip/">
 
-                            <img src="../logo" alt="BigLibrary">
+                            <img src="${pageContext.request.contextPath }/img/logo.png" alt="BigLibrary">
 
                         </a>
                         <span class="mobile_nav_close iconfont icon-guanbi"></span>
@@ -836,7 +931,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        style="display: none;"></a>
 </div>
 <div class="weixin_sercice">
-    <img src="../files/weixin_sercice" alt="微信客服二维码">
+    <img src="${pageContext.request.contextPath }/img/weixin_sercice.png" alt="微信客服二维码">
 
 </div>
 
@@ -910,23 +1005,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 
 
-<script src="../js/yhsd-desktop-170719.min.js.下载" type="text/javascript"></script>
-<script src="../js/youpage.min.js.下载" type="text/javascript"></script>
-<script src="../js/main.js.下载" type="text/javascript"></script>
-<script src="../js/user.js.下载" type="text/javascript"></script>
-<script src="../js/img_zoom.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/yhsd-desktop-170719.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/youpage.min.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/main.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/user.js.下载" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/img_zoom.min.js.下载" type="text/javascript"></script>
 
 
 <!--图片轮播部分代码-->
-<script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
-<script src="../js/pageSwitch.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/pageSwitch.min.js"></script>
 <script>
     $("#picture").PageSwitch({
-        direction:'horizontal',
-        easing:'ease-in',
-        duration:1000,
-        autoPlay:true,
-        loop:'false'
+        direction: 'horizontal',
+        easing: 'ease-in',
+        duration: 1000,
+        autoPlay: true,
+        loop: 'false'
     });
 </script>
 </body>

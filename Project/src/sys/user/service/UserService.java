@@ -1,5 +1,9 @@
 package sys.user.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import sys.user.dao.UserDao;
@@ -26,14 +30,23 @@ public class UserService {
 	 * @param username
 	 * @return
 	 */
-	public User findByUsername(String username){
-		return userDao.findByUsername(username);
+	public User findByEmail(String email){
+		return userDao.findByEmail(email);
 	}
 
-	public void save(User user) {
+	public User findByPhone(String phone){
+		return userDao.findByPhone(phone);
+	}
+	
+	public void save(User user) throws ParseException {
 		user.setState(1);//0 未激活 1 已激活
 		String code = UUIDUtil.getUUID()+UUIDUtil.getUUID();//64Bytes
 		user.setCode(code);
+		//时间问题
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date = sdf.parse(sdf.format(new Date()));
+		user.setCreate_date(date);
+		System.out.println(user.getCreate_date());
 		userDao.save(user);
 	}
 //=============================================
