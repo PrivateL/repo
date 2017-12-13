@@ -10,6 +10,8 @@
 		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/authorColumn_update.action" method="post" enctype="multipart/form-data">
 			
 			<input type="hidden" name="acId" value="<s:property value="model.acId"/>" id="userAction_save_do_logonName" class="bg"/>				
+			<input type="hidden" name="columnWeight" value="<s:property value="mode.columnWeight"/>">
+			
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
@@ -95,13 +97,8 @@
 						   	 </option>
 						    </s:iterator>
 						</select>
-						
-						<!--  <input type="text" name="category" value="<s:property value="model.category.ctgName"/>" id="userAction_save_do_logonName" class="bg"/>
-						-->
 					</td>
-					<td>
-						<input type="hidden" name="columnWeight" value="<s:property value="mode.columnWeight"/>">
-					</td>
+					
 				</tr>
 				
 				

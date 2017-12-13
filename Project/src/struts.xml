@@ -29,6 +29,16 @@
 			<result name="quit" type="redirectAction">index</result>
 		</action>
 		
+		<!-- 学习路径Action -->
+		<action name="studyPath_*" class="studyPathAction" method="{1}">
+			<result name="findAll">/admin/studyPath/list.jsp</result>
+			<result name="addSuccess">/admin/studyPath/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">studyPath_adminFindAll.action</result>
+			<result name="editSuccess">/admin/studyPath/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">studyPath_adminFindAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">studyPath_adminFindAll.action</result>
+		</action>
+		
 		<!-- 分类的Action -->
 		<action name="category_*" class="categoryAction" method="{1}">
 			<result name="findAll">/admin/category/list.jsp</result>

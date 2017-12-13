@@ -37,6 +37,8 @@
 		d.add('010401','0104','分类管理','${pageContext.request.contextPath}/category_adminFindAll.action','','mainFrame');
 		d.add('0105','01','作者专栏管理','${pageContext.request.contextPath}/admin/welcome.jsp','','mainFrame');
 		d.add('010501','0105','作者专栏管理','${pageContext.request.contextPath}/authorColumn_adminFindAll.action','','mainFrame');
+		d.add('0106','01','学习路径管理','${pageContext.request.contextPath}/admin/welcome.jsp','','mainFrame');
+		d.add('010601','0106','学习路径管理','${pageContext.request.contextPath}/studyPath_adminFindAll.action','','mainFrame');
 		
 		document.write(d);
 		

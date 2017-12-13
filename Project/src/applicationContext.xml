@@ -83,6 +83,7 @@
 	<!-- 学习路径Action -->
 	<bean id="studyPathAction" class="sys.studypath.StudyPathAction" scope="prototype">
 		<property name="studyPathService" ref="studyPathService"></property>
+		<property name="categoryService" ref="categoryService"></property>
 	</bean>
 	
 	<!-- 分类Action -->

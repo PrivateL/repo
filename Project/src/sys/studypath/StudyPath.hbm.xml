@@ -13,9 +13,10 @@
         <property name="pathName" type="string">
             <column name="path_name" />
         </property>
-        <property name="ctgSecId" type="integer">
-            <column name="ctg_sec_id" />
-        </property>
+        
+        <!-- 分类的多对一 -->
+         <many-to-one name="category" class="sys.category.Category" column="ctg_sec_id" lazy="false"/>
+        
         <property name="industryId" type="integer">
             <column name="industry_id" />
         </property>

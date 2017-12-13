@@ -190,4 +190,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "quit";
 	}
+	
+	
+	// 后台查找所有用户
+	public String adminFindAll(){
+		
+		return "findAll";
+	}
 }
