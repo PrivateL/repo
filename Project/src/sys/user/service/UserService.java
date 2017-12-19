@@ -3,6 +3,7 @@ package sys.user.service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,5 +53,10 @@ public class UserService {
 //=============================================
 	public User login(User user) {
 		return userDao.login(user);
+	}
+
+	// 后台查询所有用户
+	public List<User> findAll() {
+		return userDao.findAll();
 	}
 }

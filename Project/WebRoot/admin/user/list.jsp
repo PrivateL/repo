@@ -20,7 +20,7 @@
 					
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>学习路径列表</strong>
+							<strong>用户列表</strong>
 						</TD>
 					</tr>
 					<tr>

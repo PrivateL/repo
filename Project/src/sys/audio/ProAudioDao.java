@@ -11,7 +11,7 @@ public class ProAudioDao extends HibernateDaoSupport{
 		return null;
 	}
 
-	// 查询所有音频
+	// 查询音频数量
 	public Integer findCount() {
 		List<Long> list = this.getHibernateTemplate().find("select count(*) from ProAudio ");
 		return list.get(0).intValue();

@@ -71,5 +71,10 @@ public class UserDao extends HibernateDaoSupport{//HibernateDaoSupport提供模�
 		else
 			return null;
 	}
+	
+	// 后台查询所有用户
+	public List<User> findAll() {
+		return this.getHibernateTemplate().find("from User");
+	}
 
 }

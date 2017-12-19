@@ -2,6 +2,7 @@ package sys.user.action;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -194,7 +195,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	
 	// 后台查找所有用户
 	public String adminFindAll(){
-		
+		List<User> uList = userService.findAll();
 		return "findAll";
 	}
 }
