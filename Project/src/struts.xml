@@ -27,6 +27,25 @@
 			<result name="loginPage">/jsp/login.jsp</result>
 			<result name="loginSuccess" type="redirectAction">index</result>
 			<result name="quit" type="redirectAction">index</result>
+			
+			<!-- 后台 -->
+			<result name="findAll">/admin/user/list.jsp</result>
+			<result name="addSuccess">/admin/user/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">userInfo_add.action</result>
+			<result name="saveError">/admin/user/add.jsp</result>
+			<result name="editSuccess">/admin/user/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">userInfo_edit.action</result>
+			<result name="updateError">/admin/user/edit.jsp</result>
+			<result name="deleteSuccess" type="redirectAction">user_adminFindAll.action?page=1</result>
+		</action>
+		
+		<!-- 用户详情Action -->
+		<action name="userInfo_*" class="userInfoAction" method="{1}">
+			<result name="showSuccess">/admin/userInfo/list.jsp</result>
+			<result name="addSuccess">/admin/userInfo/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">user_adminFindAll.action?page=1</result>
+			<result name="editSuccess">/admin/userInfo/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">user_adminFindAll.action?page=1</result>
 		</action>
 		
 		<!-- 学习路径Action -->

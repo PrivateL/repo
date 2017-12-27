@@ -118,8 +118,7 @@
 											</td>
 										</tr>
 									</s:iterator>	
-									<tr
-									style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
+									<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
 
 									<td align="center" width="18%" colspan="10">
 										第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页

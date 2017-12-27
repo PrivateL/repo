@@ -2,6 +2,7 @@ package sys.user.action;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -9,9 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
+import sys.audio.ProAudio;
 import sys.user.entity.User;
 import sys.user.service.UserService;
+import sys.userInfo.UserInfo;
+import sys.userInfo.UserInfoService;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -192,10 +197,76 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		return "quit";
 	}
 	
-	
+	private Integer page;// 当前页面
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
 	// 后台查找所有用户
 	public String adminFindAll(){
+		sys.utils.PageBean<ProAudio> pageBean = userService.findByPage(page);
+		// 将PageBean的数据保存到页面:
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		
 		List<User> uList = userService.findAll();
+		ActionContext.getContext().getValueStack().set("uList", uList);
 		return "findAll";
+	}
+	
+	// 后台添加用户
+	public String add(){
+		
+		return "addSuccess";
+	}
+	
+	// 后台储存用户
+	public String save(){
+		// System.out.println(user.getUsername());
+		if(userService.findByUsername(user.getUsername()) != null){
+			this.addActionError("用户名已注册");
+			return "saveError";
+		}
+		ActionContext.getContext().getSession().put("username", user.getUsername());
+	
+		user.setCreate_date(new Date());
+		userService.adminSave(user);
+		User u = userService.findByUsername(user.getUsername());
+		ActionContext.getContext().getSession().put("user", u);
+		return "saveSuccess";
+	}
+	
+	// 后台编辑用户
+	public String edit(){
+		user = userService.findById(user.getId());
+		return "editSuccess";
+	}
+	
+	private String name;// 用来记录修改前用户的username
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	// 后台修改用户
+	public String update(){
+		//System.out.println(name);
+		if(!name.equals(user.getUsername()) && userService.findByUsername(user.getUsername()) != null){
+			this.addActionError("用户名已注册");
+			return "updateError";
+		}
+		userService.update(user);
+		ActionContext.getContext().getSession().put("userId", user.getId());
+		return "updateSuccess";
+	}
+	
+	private UserInfoService userInfoService;
+	public void setUserInfoService(UserInfoService userInfoService) {
+		this.userInfoService = userInfoService;
+	}
+	
+	// 后台删除用户
+	public String delete(){
+		userService.delete(userService.findById(user.getId()));
+		userInfoService.delete(userInfoService.findByUserId(user.getId()));
+		return "deleteSuccess";
 	}
 }

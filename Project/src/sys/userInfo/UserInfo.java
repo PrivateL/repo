@@ -1,4 +1,4 @@
-package sys.user.entity;
+package sys.userInfo;
 
 import sys.industry.Industry;
 
@@ -8,22 +8,29 @@ import sys.industry.Industry;
  *
  */
 public class UserInfo {
-	private Integer id;
-	private String name;
-	private String sex;
-	private Integer age;
-	private String phone;
-	private String level;
-	private String photo;
-	private String education;
-	private String job;
-	private Industry industry;//行业
+	private Integer id; 
+	private Integer userId;// 用户id
+	private String name; // 昵称
+	private String sex;// 性别
+	private Integer age;// 年龄
+	private String phone;// 电话
+	private String level;// 用户等级
+	private String photo;// 用户头像图片
+	private String education;// 用户学历
+	private String job;// 用户工作
+	private Industry industry;// 用户所在行业
 	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public Integer getAge() {
 		return age;

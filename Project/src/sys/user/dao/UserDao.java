@@ -3,6 +3,7 @@ package sys.user.dao;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import sys.audio.ProAudio;
 import sys.user.entity.User;
 
 import org.apache.log4j.Logger;
@@ -76,5 +77,43 @@ public class UserDao extends HibernateDaoSupport{//HibernateDaoSupport提供模�
 	public List<User> findAll() {
 		return this.getHibernateTemplate().find("from User");
 	}
+	
+	// 后台储存用户
+	public void adminSave(User user) {
+		this.getHibernateTemplate().save(user);
+	}
+	
+	// 根据id查找
+	public User findById(Integer id) {
+		return this.getHibernateTemplate().get(User.class, id);
+	}
+	
+	// 根据用户名查找
+	public User findByUsername(String username) {
+		String hql = "from User where username = ?";
+		List<User> list = this.getHibernateTemplate().find(hql, username);
+		if(list != null && list.size() > 0)
+			return list.get(0);
+		else
+			return null;
+	}
+	public void update(User user) {
+		this.getHibernateTemplate().update(user);
+	}
+	public void delete(User user) {
+		this.getHibernateTemplate().delete(user);
+	}
+	// 查询用户数量
+	public Integer findCount() {
+		List<Long> list = this.getHibernateTemplate().find("select count(*) from User ");
+		return list.get(0).intValue();
+	}
+	// 根据页面查询用户
+	public List<ProAudio> findByPage(Integer begin, Integer limit) {
+		String hql = "from User order by create_date desc";
+		List<ProAudio> list = this.getHibernateTemplate().executeFind(new sys.utils.PageHibernateCallback<ProAudio>(hql, null, begin, limit));
+		return list;
+	}
+
 
 }

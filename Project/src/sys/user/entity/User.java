@@ -2,6 +2,8 @@ package sys.user.entity;
 
 import java.util.Date;
 
+import sys.userInfo.UserInfo;
+
 // 用户
 public class User {
 	private Integer id;// id
@@ -10,8 +12,9 @@ public class User {
 	private String email;// 邮箱
 	private String phone;//电话
 	private Integer state;//激活状态
-	private String code;//激活码
+	private String code;//激活码 
 	private Date create_date;//创建日期
+	
 	public Integer getId() {
 		return id;
 	}

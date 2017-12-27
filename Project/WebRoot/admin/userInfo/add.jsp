@@ -26,94 +26,105 @@
 				return false;
 			}
 		}
-		
-		// 跳转去是否保存用户信息
-		function sub(){
-			var boo = confirm('是否保存用户信息');
-	        //confirm 会返回你选择的选项,然后可以依据选择执行逻辑
-	        if(boo){
-	        	window.location = "${pageContext.request.contextPath}/user_update.action?_id="+id;	    
-	        }else{
-	        	var id = document.getElementById("id").value;
-	           window.location = "${pageContext.request.contextPath}/userInfo_edit.action?_id="+id;	
-	        }
-		}
 
+		// 默认添加
+		function so(){
+			
+		}
 		</script>
 	</HEAD>
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/user_update.action" method="post" enctype="multipart/form-data"
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/userInfo_save.action" method="post" enctype="multipart/form-data"
 		onsubmit="return checkForm();">
-			<input type="hidden" name="id" id="id" value="<s:property value="model.id"/>"/>
-			<input type="hidden" name="create_date" value="<s:property value="model.create_date"/>"/>
-			<input type="hidden" name="name"  value="<s:property value="model.username"/>"/>
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3" colSpan="4"
 						height="26">
-						<STRONG>编辑用户</STRONG>
+						<STRONG>添加用户<s:property value="#session.username"/>详情</STRONG>
 					</td>
 				</tr>
 				<tr>
 					<s:actionerror />
 				</tr>
+				
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						用户名：
+						昵称：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="username"  id="username" class="bg" value="<s:property value='model.username'/>"/>
-						
+						<input type="text" name="name" id="name" class="bg"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+						头像：
+					</td>
+					<td class="ta_01" bgColor="#ffffff" colspan="3">
+						<input type="file" name="photo" id="photo">
 					</td>
 					
 				</tr>
 				
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						密码：
+						性别：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="password" id="password" class="bg" value="<s:property value='model.password'/>"/>
+						<input type="text" name="sex" id="sex" class="bg"/>
 					</td>
 				</tr>
 				
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						邮箱：
+						年龄：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="email" id="email" class="bg" value="<s:property value='model.email'/>"/>
+						<input type="text" name="age" id="age" class="bg"/>
 					</td>
 				</tr>
 				
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						电话：
+						用户等级：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="phone" id="phone" class="bg" value="<s:property value='model.phone'/>"/>
+						<input type="text" name="level" id="level" class="bg"/>
+					</td>
+				</tr>
+			
+				<tr>
+					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+						学历：
+					</td>
+					<td class="ta_01" bgColor="#ffffff" colspan="3">
+						<input type="text" name="education" id="education" class="bg"/>
 					</td>
 				</tr>
 				
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						激活状态：
+						工作：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="radio" name="state" value="0" checked="checked"/>未激活
-						<input type="radio" name="state" value="1" />激活
-					</td>
-				</tr>
-		
-				<tr>
-					<td width="20%" align="center"  class="ta_01">	
-						<button onclick="sub();"><font color="red">编辑详细信息</font></button >
+						<input type="text" name="job" id="job" class="bg"/>
 					</td>
 				</tr>
 				
 				<tr>
-					<td align="center" colSpan="4"class="sep1">
+					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+						行业：
+					</td>
+					<td class="ta_01" bgColor="#ffffff" colspan="3">
+						<input type="text" name="job" id="job" class="bg"/>
+					</td>
+				</tr>
+				
+				
+			
+				<tr>
+					<td align="center" colSpan="4" class="sep1">
 						<img src="${pageContext.request.contextPath}/images/shim.gif">
 					</td>
 				</tr>
@@ -123,15 +134,15 @@
 					<td class="ta_01" style="WIDTH: 100%" align="center"
 						bgColor="#f5fafe" colSpan="4">
 						<button type="submit" id="userAction_save_do_submit"  value="确定" class="button_ok">
-							&#30830;&#23450;
+							添加
 						</button>
 
-						<FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
-						<button type="reset" value="重置" class="button_cancel">&#37325;&#32622;</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="userAction_save_do_submit"  onclick="so();" class="button_ok">
+							默认添加
+						</button>
 
-						<FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
-						<INPUT class="button_ok" type="button" onclick="history.go(-1)" value="返回"/>
-						<span id="Label1"></span>
+						
 					</td>
 				</tr>
 			</table>

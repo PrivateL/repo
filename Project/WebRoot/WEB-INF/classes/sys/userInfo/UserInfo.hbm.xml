@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="sys.userInfo.UserInfo" table="user_info">
+		<id name="id">
+			<column name="user_info_id"></column>
+			<generator class="native"/>
+		</id>
+		<property name="name" column="user_name"/>
+		<property name="sex" column="user_sex"/>
+		<property name="age" column="user_age"/>
+		<property name="phone" column="user_phone"/>
+		<property name="level" column="user_level"/>
+		<property name="photo" column="user_photo"/>
+		<property name="education" column="user_education"/>
+		<property name="job" column="user_job"/>
+		<property name="userId" column="user_id"/>
+		
+	</class>
+</hibernate-mapping>

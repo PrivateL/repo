@@ -8,7 +8,7 @@
 		<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<script type="text/javascript">
 			function addUser(){
-				window.location = "${pageContext.request.contextPath}/studyPath_add.action";				
+				window.location = "${pageContext.request.contextPath}/user_add.action";				
 			}
 		</script>
 	</HEAD>
@@ -43,22 +43,25 @@
 										序号
 									</td>
 									<td align="center" width="8%">
-										学习路径名称
+										用户名
 									</td>
-									<td align="center" width="12%">
-										图片
-									</td>
-									<td align="center" width="5%">
-										所属分类
+									<td align="center" width="8%">
+										密码
 									</td>
 									<td align="center" width="10%">
-										描述
-									</td>
-									<td align="center" width="5%">
-										点击量
+										邮箱
 									</td>
 									<td align="center" width="10%">
-										上传时间
+										电话
+									</td>
+									<td align="center" width="5%">
+										激活状态
+									</td>
+									<td align="center" width="10%">
+										创建日期
+									</td>
+									<td width="5%" align="center">
+										查看详细信息
 									</td>
 									<td width="5%" align="center">
 										编辑
@@ -67,7 +70,7 @@
 										删除
 									</td>
 								</tr>
-								<s:iterator var="s" value="sList" status="status">
+								<s:iterator var="u" value="uList" status="status">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -76,42 +79,68 @@
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="8%">
-												<s:property value="#s.pathName"/>
+												<s:property value="#u.username"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="12%">
-												<img width="45" height="50" src="${pageContext.request.contextPath }/<s:property value="#s.pathImage"/>"/>
-											</td>
-											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="5%">
-												<s:property value="#s.category.ctgName"/>
+												width="8%">
+												<s:property value="#u.password"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="10%">
-												<s:property value="#s.pathDesc"/>
-											</td>
-											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="5%">
-												<s:property value="#s.pathWeight"/>
+												<s:property value="#u.email"/>
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="10%">
-												<input type="datetime" value="<s:property value="#s.pathCreateTime"/>">
+												<s:property value="#u.phone"/>
+											</td>
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="5%">
+												<s:if test="#u.state == 0">
+													未激活
+												</s:if>
+												<s:else>
+													激活
+												</s:else>
+												
+											</td>
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="10%">
+												<input type="datetime" value="<s:property value="#u.create_date"/>">
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/studyPath_edit.action?pathId=<s:property value="#s.pathId"/>">
+												<a href="${pageContext.request.contextPath}/userInfo_show?_id=<s:property value="#u.id"/>">
+													详细信息
+												</a>
+											</td>
+											
+											<td align="center" style="HEIGHT: 22px">
+												<a href="${pageContext.request.contextPath}/user_edit.action?id=<s:property value="#u.id"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 											
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/studyPath_delete.action?pathId=<s:property value="#s.pathId"/>">
+												<a href="${pageContext.request.contextPath}/user_delete.action?id=<s:property value="#u.id"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 										</tr>
+										
 									</s:iterator>	
+									<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
+										<td align="center" width="18%" colspan="10">
+											第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页
+											<s:if test="pageBean.page != 1">
+												<a href="${ pageContext.request.contextPath }/user_adminFindAll.action?page=1">首页</a> |
+												<a href="${ pageContext.request.contextPath }/user_adminFindAll.action?page=<s:property value="pageBean.page-1"/>">上一页</a> |
+											</s:if>
+											<s:if test="pageBean.page != pageBean.totalPage">
+												<a href="${ pageContext.request.contextPath }/user_adminFindAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a> |
+												<a href="${ pageContext.request.contextPath }/user_adminFindAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>
+											</s:if>
+										</td>
+									</tr>
 							</table>
 						</td>
 					</tr>

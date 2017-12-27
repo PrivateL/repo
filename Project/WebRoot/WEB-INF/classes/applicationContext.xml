@@ -51,6 +51,7 @@
 				<value>sys/audio/ProAudio.hbm.xml</value>
 				<value>sys/author/AuthorColumn.hbm.xml</value>
 				<value>sys/studypath/StudyPath.hbm.xml</value>
+				<value>sys/userInfo/UserInfo.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -77,6 +78,13 @@
 	
 	<!-- 用户模块Action -->
 	<bean id="userAction" class="sys.user.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"/>
+		<property name="userInfoService" ref="userInfoService"></property>
+	</bean>
+	
+	<!-- 用户详情Action -->
+	<bean id="userInfoAction" class="sys.userInfo.UserInfoAction" scope="prototype">
+		<property name="userInfoService" ref="userInfoService"></property>
 		<property name="userService" ref="userService"/>
 	</bean>
 	
@@ -117,6 +125,11 @@
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
+	<!-- 用户详情Service -->
+	<bean id="userInfoService" class="sys.userInfo.UserInfoService">
+		<property name="userInfoDao" ref="userInfoDao"></property>
+	</bean>
+	
 	<!-- 学习路径Service -->
 	<bean id="studyPathService" class="sys.studypath.StudyPathService">
 		<property name="studyPathDao" ref="studyPathDao"></property>
@@ -149,6 +162,12 @@
 	<bean id="userDao" class="sys.user.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	
+	<!-- 用户详情Dao -->
+	<bean id="userInfoDao" class="sys.userInfo.UserInfoDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
 	
 	<!-- 学习路径Dao -->
 	<bean id="studyPathDao" class="sys.studypath.StudyPathDao">
